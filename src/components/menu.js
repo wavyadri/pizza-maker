@@ -110,10 +110,10 @@ export const menu = [
     {
         id: 10,
         category: 'classics',
-        title: 'Meat Street',
+        title: 'Ham Sandwich',
         image: 'y',
-        base: 'bbq sauce',
-        toppings: ['pepperoni', 'sausage', 'smoked ham', 'cheddar cheese'],
+        base: 'house-made pesto',
+        toppings: ['black olives', 'smoked ham', 'mozzarella slices'],
         price: '16.99',
         bestseller: true,
         vegetarian: false,
