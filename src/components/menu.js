@@ -119,4 +119,16 @@ export const menu = [
         vegetarian: false,
         spicy: false,
     },
+    {
+        id: 11,
+        category: 'custom',
+        title: 'custom pizza maker',
+        image: 'y',
+        base: '',
+        toppings: [],
+        price: '',
+        bestseller: false,
+        vegetarian: false,
+        spicy: false,
+    },
 ]
