@@ -7,6 +7,8 @@
   font-weight: normal;
   font-style: normal;
 }
+
+// V A R I A B L E S
 // font
 $font-title: "Retrocycles";
 $font-main: "Open Sans", sans-serif;
@@ -14,11 +16,23 @@ $font-main: "Open Sans", sans-serif;
 // colours
 $black: #231c1a;
 // $black: #433633;
-$light: #cd5d67;
+$light: #fefaeb;
+// $light: #fef5d8;
 $primary: #e23d28;
 $secondary: #663f46;
 $danger: #e23d28;
 $success: #00a676;
+
+// M I X I N S
+// text non-selectable
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
 
 * {
   margin: 0;
@@ -28,9 +42,70 @@ $success: #00a676;
 
 body {
   font-family: $font-main;
+  background-color: $light;
 }
 
 #home {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-grids {
+  display: flex;
+  z-index: -10;
+  .grid-left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    justify-items: start;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    .square {
+      height: 130px;
+      width: 130px;
+      + .s2,
+      + .s4,
+      + .s5,
+      + .s7,
+      + .s10,
+      + .s13 {
+        background-color: $primary;
+        &:hover {
+          transform: scale(1.1);
+          transition: 0.1s ease-in;
+        }
+      }
+    }
+  }
+  .grid-right {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    .square {
+      height: 130px;
+      width: 130px;
+      + .s15,
+      + .s13,
+      + .s12,
+      + .s10,
+      + .s7,
+      + .s4 {
+        background-color: $primary;
+        &:hover {
+          transform: scale(1.1);
+          transition: 0.1s ease-in;
+        }
+      }
+    }
+  }
+}
+
+.home-center {
+  z-index: 10;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,16 +116,45 @@ body {
   .home-text {
     :nth-child(1) {
       font-weight: 300;
-      font-size: 2rem;
+      font-size: 2em;
+      letter-spacing: 0.5rem;
+      color: $black;
+      margin: 1rem;
+      text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
     }
     :nth-child(2) {
       font-family: $font-title;
       letter-spacing: 1rem;
-      word-spacing: 0.3rem;
+      word-spacing: 0px;
       font-weight: 600;
-      font-size: 12rem;
+      font-size: 12em;
       transform: rotate(-3deg);
       color: $primary;
+      text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+    }
+  }
+
+  .home-buttons {
+    display: flex;
+    button {
+      @include no-select();
+      padding: 15px 10px;
+      border: 5px solid $black;
+      font-family: $font-main;
+      font-size: 1em;
+      margin: 2rem 1rem;
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-5px);
+        transition: 0.2s ease-in-out;
+      }
+    }
+    .menu-btn {
+      background-color: $light;
+    }
+    .custom-btn {
+      background-color: $black;
+      color: $light;
     }
   }
 }
