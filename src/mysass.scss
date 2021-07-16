@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@font-face {
+  font-family: "Retrocycles";
+  src: url("./fonts-copy/Retrocycles.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+// font
+$font-title: "Retrocycles";
+$font-main: "Open Sans", sans-serif;
+
+// colours
+$black: #231c1a;
+// $black: #433633;
+$light: #cd5d67;
+$primary: #e23d28;
+$secondary: #663f46;
+$danger: #e23d28;
+$success: #00a676;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+}
+
+#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .home-text {
+    :nth-child(1) {
+      font-weight: 300;
+      font-size: 2rem;
+    }
+    :nth-child(2) {
+      font-family: $font-title;
+      letter-spacing: 1rem;
+      word-spacing: 0.3rem;
+      font-weight: 600;
+      font-size: 12rem;
+      transform: rotate(-3deg);
+      color: $primary;
+    }
+  }
+}
