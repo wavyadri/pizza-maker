@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import FullMenu from './components/FullMenu'
 import Custom from './components/Custom'
+import ShoppingCart from './components/ShoppingCart'
 
 function App() {
   // show navbar and footer on all pages other than Home
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path='/make-your-own'>
             <Custom/>
+          </Route>
+          <Route path='/shopping-cart'>
+            <ShoppingCart/>
           </Route>
         </Switch>
       </>
