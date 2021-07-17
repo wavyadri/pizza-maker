@@ -42,6 +42,10 @@ $success: #00a676;
   text-align: center;
 }
 
+@mixin ease {
+  transition: 0.3s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -155,7 +159,7 @@ body {
       &:hover {
         cursor: pointer;
         transform: translateY(-5px);
-        transition: 0.2s ease-in-out;
+        @include ease();
       }
     }
     .menu-btn {
@@ -176,44 +180,69 @@ body {
   .navbar-items {
     max-width: 70%;
     min-height: 10vh;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
     align-items: center;
     margin: auto;
     padding: 0 10px;
     border-bottom: 2px solid $primary;
   }
   .logo {
-    @include no-select();
-    font-family: $font-title;
-    letter-spacing: 5px;
-    word-spacing: 0px;
-    font-weight: 600;
-    font-size: 2em;
-    transform: rotate(-3deg);
-    color: $primary;
-    text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  .navbar-list {
-    @include no-select();
-    list-style: none;
-    display: flex;
-    li {
-      margin: 0 1rem;
+    p {
+      @include no-select();
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: $font-title;
+      letter-spacing: 5px;
+      word-spacing: 0px;
+      font-weight: 600;
+      font-size: 2em;
+      transform: rotate(-3deg);
+      color: $primary;
+      text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
       &:hover {
         cursor: pointer;
-        color: $primary;
       }
-      p {
-        font-size: 1.3em;
-        font-weight: 600;
+    }
+    .navbar-toggle {
+      display: none;
+    }
+  }
+  .navbar-links {
+    @include no-select();
+
+    .navbar-list {
+      // @include flex-center();
+      // flex-direction: row;
+      // list-style: none;
+
+      justify-content: flex-start;
+      li {
+        margin: 0 1rem;
+        @include ease();
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+          transform: translateY(-5px);
+          @include ease();
+        }
+        p {
+          font-size: 1.3em;
+          font-weight: 600;
+        }
       }
     }
   }
-  .cart-icon {
-    font-size: 2em;
+  .shopping-cart {
+    justify-content: flex-end;
+    .cart-icon {
+      font-size: 2em;
+      @include ease();
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 }

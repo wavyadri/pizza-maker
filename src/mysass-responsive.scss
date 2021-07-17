@@ -33,6 +33,56 @@
       }
     }
   }
+
+  // N A V B A R
+  #navbar {
+    .navbar-items {
+      max-width: 80%;
+      min-height: 8vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      justify-content: center;
+      align-items: center;
+      border-bottom: none;
+      .logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 2px solid $primary;
+        .navbar-toggle {
+          @include flex-center();
+          font-size: 2em;
+          color: $primary;
+          background: transparent;
+          border: none;
+          transition: all 0.3s linear;
+          cursor: pointer;
+          padding: 0;
+          margin: 0;
+          font-weight: 200;
+          &:hover {
+            color: $primary;
+            transform: rotate(90deg);
+          }
+        }
+      }
+      .navbar-list {
+        height: 200px;
+        overflow: hidden;
+        @include ease();
+        @include flex-center();
+      }
+      .navbar-list,
+      .cart-icon {
+        background-color: var(--dark-colour);
+        overflow: hidden;
+        transition: all 0.3s linear;
+        justify-content: center;
+      }
+    }
+  }
 }
 
 // Mobile
