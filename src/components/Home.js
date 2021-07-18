@@ -44,15 +44,15 @@ const Home = () => {
             </div>
             <div className="home-center">
                 <div className="home-text">
-                    <h1>Welcome to</h1>
+                    <h1>welcome to</h1>
                     <h1 className='home-title'>Pizza Maker</h1>
                 </div>            
                 <div className="home-buttons">
                     <Link to='/menu'>
-                        <button className='menu-btn'>Our Menu</button>
+                        <button className='menu-btn'>our menu</button>
                     </Link>
                     <Link to='/make-your-own'>
-                        <button className='custom-btn'>Make Your Own</button>
+                        <button className='custom-btn'>make your own</button>
                     </Link>
                 </div>
             </div>

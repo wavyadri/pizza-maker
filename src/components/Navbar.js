@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav id='navbar'>
             <div className="navbar-items">
                 <div className="logo">
-                    <Link className="link" to='/menu'><p>pizza maker</p></Link>
+                    <Link className="link logo-text" to='/menu'><p>pizza maker</p></Link>
                     <button className='navbar-toggle'><FaBars/></button>
                 </div>
                 <div className="navbar-links">
