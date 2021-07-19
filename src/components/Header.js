@@ -6,7 +6,7 @@ import React from 'react'
 const Header = () => {
     return (
         <div>
-            <h1>Page Header</h1>
+            {/* <h1>header for the page</h1> */}
         </div>
     )
 }
