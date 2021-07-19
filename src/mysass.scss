@@ -46,6 +46,10 @@ $success: #00a676;
   transition: 0.3s ease-in-out;
 }
 
+@mixin linear {
+  transition: 0.3s linear;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -187,7 +191,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    // border-bottom: 2px solid $primary;
+    border-bottom: 2px solid $primary;
     .logo {
       justify-self: start;
       margin: 0 1rem;
@@ -235,16 +239,16 @@ body {
             font-size: 1.3em;
             font-weight: 600;
           }
-        }
-      }
-      .shopping-cart {
-        @include flex-center();
-        margin: 0 1em;
-        .cart-icon {
-          font-size: 2em;
-          @include ease();
-          &:hover {
-            color: $primary;
+          .shopping-cart {
+            @include flex-center();
+            margin: 0 1em;
+            .cart-icon {
+              font-size: 2em;
+              @include ease();
+              &:hover {
+                color: $primary;
+              }
+            }
           }
         }
       }
