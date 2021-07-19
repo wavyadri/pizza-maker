@@ -71,10 +71,8 @@
           }
         }
       }
-      .show-links {
-        height: auto !important;
-      }
       .navbar-links {
+        color: $primary;
         background-color: $primary;
         height: 0px;
         overflow: hidden;
@@ -87,12 +85,20 @@
           li {
             @include flex-center();
             margin: 0px;
-            padding: 2rem 0px;
             color: $light;
             width: 100vw;
             &:hover {
-              background: yellow;
+              background: #e44d3a;
               transform: translateY(0px);
+            }
+            .link {
+              margin: 0px;
+              padding: 2rem 0;
+              display: block;
+              width: 100%;
+              height: 100%;
+              color: $light;
+              border: 1px solid $light;
             }
           }
         }
@@ -100,54 +106,6 @@
     }
   }
 }
-// #navbar {
-//   .navbar-items {
-//     max-width: 80%;
-//     min-height: 8vh;
-//     display: grid;
-//     grid-template-columns: 1fr;
-//     grid-template-rows: 1fr;
-//     justify-content: center;
-//     align-items: center;
-//     border-bottom: none;
-//     .logo {
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       padding: 10px 0;
-//       border-bottom: 2px solid $primary;
-//       .navbar-toggle {
-//         @include flex-center();
-//         font-size: 2em;
-//         color: $primary;
-//         background: transparent;
-//         border: none;
-//         transition: all 0.3s linear;
-//         cursor: pointer;
-//         padding: 0;
-//         margin: 0;
-//         font-weight: 200;
-//         &:hover {
-//           color: $primary;
-//           transform: rotate(90deg);
-//         }
-//       }
-//     }
-//     .navbar-list {
-//       height: 200px;
-//       overflow: hidden;
-//       @include ease();
-//       @include flex-center();
-//     }
-//     .navbar-list,
-//     .cart-icon {
-//       background-color: var(--dark-colour);
-//       overflow: hidden;
-//       transition: all 0.3s linear;
-//       justify-content: center;
-//     }
-//   }
-// }
 
 // Mobile
 @media screen and (min-width: 320px) and (max-device-width: 480px) {

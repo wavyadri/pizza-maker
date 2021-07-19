@@ -43,11 +43,11 @@ $success: #00a676;
 }
 
 @mixin ease {
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 @mixin linear {
-  transition: 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 * {
@@ -191,7 +191,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    border-bottom: 2px solid $primary;
     .logo {
       justify-self: start;
       margin: 0 1rem;
