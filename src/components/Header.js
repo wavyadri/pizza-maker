@@ -1,13 +1,16 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 
-// h1 match route
-// remove any '-' and replace with ' '
 
 const Header = () => {
+    // grab url param with pathname
+    const pathName = useLocation().pathname;
+    // slice starting '/' then remove any '-' and replace with ' '
+    const pathHeader = pathName.slice(1).replace(/-/g, ' ');
     return (
-        <div>
-            {/* <h1>header for the page</h1> */}
-        </div>
+        <header>
+            <h1>{pathHeader}</h1>
+        </header>
     )
 }
 

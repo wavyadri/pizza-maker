@@ -229,7 +229,6 @@ body {
           @include ease();
           &:hover {
             cursor: pointer;
-            color: $primary;
             transform: translateY(-5px);
             @include ease();
           }
@@ -237,6 +236,9 @@ body {
             text-transform: capitalize;
             font-size: 1.3em;
             font-weight: 600;
+            &:hover {
+              color: $primary;
+            }
           }
           .shopping-cart {
             @include flex-center();

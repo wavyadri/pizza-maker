@@ -91,6 +91,9 @@
               background: #e44d3a;
               transform: translateY(0px);
             }
+            p:hover {
+              color: $light;
+            }
             .link {
               margin: 0px;
               padding: 2rem 0;

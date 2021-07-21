@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // pages
@@ -7,6 +6,7 @@ import Home from './components/Home'
 import FullMenu from './components/FullMenu'
 import Custom from './components/Custom'
 import ShoppingCart from './components/ShoppingCart'
+import Header from "./components/Header"
 
 function App() {
   // show navbar and footer on all pages other than Home
@@ -16,12 +16,15 @@ function App() {
         <Navbar/>
         <Switch>
           <Route path='/menu'>
+            <Header/>
             <FullMenu/>
           </Route>
           <Route path='/make-your-own'>
+            <Header/>
             <Custom/>
           </Route>
           <Route path='/shopping-cart'>
+            <Header/>
             <ShoppingCart/>
           </Route>
         </Switch>
