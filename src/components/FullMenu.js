@@ -1,11 +1,10 @@
 import React from 'react'
-import Header from './Header'
 
 const FullMenu = () => {
     return (
-        <div>
+        <section id='menu'>
             <h1>Menu</h1>
-        </div>
+        </section>
     )
 }
 

@@ -48,7 +48,7 @@ const Home = () => {
                     <h1 className='home-title'>Pizza Maker</h1>
                 </div>            
                 <div className="home-buttons">
-                    <Link to='/menu'>
+                    <Link to='/our-menu'>
                         <button className='menu-btn'>our menu</button>
                     </Link>
                     <Link to='/make-your-own'>

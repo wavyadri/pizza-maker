@@ -26,14 +26,14 @@ const Navbar = () => {
         <nav id='navbar'>
             <div className="navbar-items">
                 <div className="logo">
-                    <Link className="link logo-text" to='/menu'><p>pizza maker</p></Link>
+                    <Link className="link logo-text" to='/'><p>pizza maker</p></Link>
                     <button className='navbar-toggle' onClick={() => setShowLinks(!showLinks)}><FaBars/></button>
                 </div>
                 <div className='navbar-links' ref={navbarLinksRef}>
                     <ul className='navbar-list' ref={navbarListRef}>
-                        <li><Link className="link" to='/menu'><p>our menu</p></Link></li>
+                        <li><Link className="link" to='/our-menu'><p>our menu</p></Link></li>
                         <li><Link className="link" to='/make-your-own'><p>make your own</p></Link></li>
-                        <li><Link className='link shopping-cart' to='/shopping-cart'><HiOutlineShoppingCart className='cart-icon'/></Link></li>
+                        <li><Link className='link checkout' to='/checkout'><HiOutlineShoppingCart className='cart-icon'/></Link></li>
                     </ul>
                 </div>
             </div>

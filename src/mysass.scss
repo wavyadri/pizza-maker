@@ -42,6 +42,19 @@ $success: #00a676;
   text-align: center;
 }
 
+// logo
+@mixin pizza-maker {
+  text-transform: capitalize;
+  font-family: $font-title;
+  letter-spacing: 1rem;
+  word-spacing: 0px;
+  font-weight: 600;
+  font-size: 12em;
+  transform: rotate(-3deg);
+  color: $primary;
+  text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+}
+
 @mixin ease {
   transition: all 0.3s ease-in-out;
 }
@@ -71,6 +84,7 @@ body {
   overflow: hidden;
 }
 
+// H O M E
 .home-grids {
   display: flex;
   z-index: -10;
@@ -141,14 +155,7 @@ body {
       text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
     }
     :nth-child(2) {
-      font-family: $font-title;
-      letter-spacing: 1rem;
-      word-spacing: 0px;
-      font-weight: 600;
-      font-size: 12em;
-      transform: rotate(-3deg);
-      color: $primary;
-      text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+      @include pizza-maker();
     }
   }
 
@@ -200,14 +207,9 @@ body {
         justify-content: flex-start;
         align-items: center;
         p {
-          font-family: $font-title;
+          @include pizza-maker();
           letter-spacing: 5px;
-          word-spacing: 0px;
-          font-weight: 600;
           font-size: 2.5em;
-          transform: rotate(-3deg);
-          color: $primary;
-          text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
           &:hover {
             cursor: pointer;
           }
@@ -240,7 +242,7 @@ body {
               color: $primary;
             }
           }
-          .shopping-cart {
+          .checkout {
             @include flex-center();
             margin: 0 1em;
             .cart-icon {
@@ -253,6 +255,83 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+// H E A D E R
+#header {
+  display: flex;
+  max-width: 65%;
+  height: 40vh;
+  margin: auto;
+  background-color: $primary;
+  overflow: hidden;
+  position: relative;
+  z-index: 98;
+
+  .header-grids {
+    display: flex;
+    z-index: 99;
+    .grid-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: grid;
+      justify-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      .square {
+        height: 60px;
+        width: 60px;
+        + .s2,
+        + .s4,
+        + .s5,
+        + .s7,
+        + .s10,
+        + .s13 {
+          background-color: $light;
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.1s ease-in;
+          }
+        }
+      }
+    }
+    .grid-right {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      .square {
+        height: 60px;
+        width: 60px;
+        + .s15,
+        + .s13,
+        + .s12,
+        + .s10,
+        + .s7,
+        + .s4 {
+          background-color: $light;
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.1s ease-in;
+          }
+        }
+      }
+    }
+  }
+  .header-container {
+    @include flex-center();
+    margin: auto;
+    z-index: 100;
+    .header-text {
+      @include pizza-maker();
+      word-spacing: -30px;
+      color: $light;
+      font-size: 8em;
     }
   }
 }

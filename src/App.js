@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import FullMenu from './components/FullMenu'
 import Custom from './components/Custom'
-import ShoppingCart from './components/ShoppingCart'
+import Checkout from './components/Checkout'
 import Header from "./components/Header"
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <>
         <Navbar/>
         <Switch>
-          <Route path='/menu'>
+          <Route path='/our-menu'>
             <Header/>
             <FullMenu/>
           </Route>
@@ -23,9 +23,9 @@ function App() {
             <Header/>
             <Custom/>
           </Route>
-          <Route path='/shopping-cart'>
+          <Route path='/checkout'>
             <Header/>
-            <ShoppingCart/>
+            <Checkout/>
           </Route>
         </Switch>
       </>
