@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './mysass.scss';
 import './mysass-responsive.scss';
+import {AppProvider} from './contexts';
 import App from './App';
-// import {AppProvider} from './context';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <AppProvider> */}
+    <AppProvider>
       <App />
-    {/* </AppProvider> */}
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

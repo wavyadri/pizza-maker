@@ -329,9 +329,20 @@ body {
     z-index: 100;
     .header-text {
       @include pizza-maker();
-      word-spacing: -30px;
+      word-spacing: -50px;
+      letter-spacing: 10px;
       color: $light;
       font-size: 8em;
     }
+  }
+}
+
+// M E N U
+#menu {
+  img {
+    z-index: 100000;
+    height: 400px;
+    width: 400px;
+    background-color: turquoise;
   }
 }

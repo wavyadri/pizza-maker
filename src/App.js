@@ -2,10 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // pages
 import Navbar from './components/Navbar'
-import Home from './components/Home'
-import FullMenu from './components/FullMenu'
-import Custom from './components/Custom'
-import Checkout from './components/Checkout'
+import Home from './pages/Home'
+import FullMenu from './pages/FullMenu'
+import Custom from './pages/Custom'
+import Checkout from './pages/Checkout'
 import Header from "./components/Header"
 
 function App() {
