@@ -1,15 +1,13 @@
 import React, {useState, useContext, useEffect} from 'react'
-import {menu} from './components/menu'
 
 const AppContext = React.createContext();
 
 // always access children
 const AppProvider = ({children}) => {
 
-    const [menuItems, setMenuItems] = useState(menu);
     // const [catgeories, setCategories] = useState(allCategories);
 
-    return <AppContext.Provider value={menuItems}>
+    return <AppContext.Provider value={'hello world'}>
         {children}
     </AppContext.Provider>
 }

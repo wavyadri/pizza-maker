@@ -339,8 +339,30 @@ body {
 
 // M E N U
 #menu {
+  @include flex-center();
+  max-width: 65%;
+  margin: auto;
+  padding: 1rem 0;
+  .menu-links {
+    .menu-list {
+      list-style: none;
+      display: flex;
+      padding: 1rem 0;
+      .category {
+        @include pizza-maker();
+        font-size: 2em;
+        letter-spacing: 8px;
+        color: $black;
+        padding: 0 5rem;
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+          @include ease();
+        }
+      }
+    }
+  }
   img {
-    z-index: 100000;
     height: 400px;
     width: 400px;
     background-color: turquoise;

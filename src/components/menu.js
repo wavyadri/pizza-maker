@@ -1,4 +1,4 @@
-export const menu = [
+const menu = [
     {
         id: 1,
         category: 'vegetarian',
@@ -132,3 +132,5 @@ export const menu = [
         spicy: false,
     },
 ]
+
+export default menu;
