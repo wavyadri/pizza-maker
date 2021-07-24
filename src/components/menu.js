@@ -126,7 +126,7 @@ const menu = [
         image: '../components/temp-pizza.png',
         base: '',
         toppings: [],
-        price: '',
+        price: '9.99 + toppings',
         bestseller: false,
         vegetarian: false,
         spicy: false,
