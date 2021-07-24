@@ -6,4 +6,4 @@
 
 07/22 Completed Header. Dynamic rendering of header text based on url.
 
-07/23 Set up context.
+07/23 Set up context. Set up FullMenu.
