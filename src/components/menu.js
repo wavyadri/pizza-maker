@@ -74,7 +74,7 @@ const menu = [
     {
         id: 7,
         category: 'classics',
-        title: 'Hawaii High-Five',
+        title:"Hawai'i High-Five",
         image: '../components/temp-pizza.png',
         base: 'homestyle tomato sauce',
         toppings: ['pineapple', 'mushrooms', 'smoked ham', 'cheddar cheese'],
@@ -122,7 +122,7 @@ const menu = [
     {
         id: 11,
         category: 'custom',
-        title: 'custom pizza maker',
+        title: 'make your own',
         image: '../components/temp-pizza.png',
         base: '',
         toppings: [],
