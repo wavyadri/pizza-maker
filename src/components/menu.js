@@ -68,7 +68,7 @@ const menu = [
         toppings: ['mozzarella cheese', 'cheddar cheese'],
         price: '14.99',
         bestseller: true,
-        vegetarian: false,
+        vegetarian: true,
         spicy: false,
     },
     {
