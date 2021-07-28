@@ -282,8 +282,10 @@
       justify-content: center;
       align-items: center;
       .menu-list {
+        flex-direction: column;
         .category {
-          padding: 0 2rem;
+          padding: 0.2em 0em;
+          font-size: 1.8em;
         }
       }
     }
