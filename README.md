@@ -1,4 +1,4 @@
-My initial idea was to replicate a custom pizza ordering app which has checkboxes for each topping and adjusts the price based on user input. I started off by sketching out my idea on paper and I knew I didn't want to stop there. This project was the perfect opportunity to strengthen my React skills and explore unknown features so I decided to expand the project.
+My initial idea was to replicate a custom pizza ordering app which has checkboxes for each topping and adjusts the price based on user input. I wanted to include e-commerce elements such as a cart-counter and checkout so I began to sketch out my ideas on paper which I find to be a useful first step for all of my projects.
 
 I created a quick wireframe on Adobe XD to guide me. I designed all of my pizza graphics in Canva. I organized all of my data in arrays in separate files.
 
