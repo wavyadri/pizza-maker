@@ -7,6 +7,8 @@ import FullMenu from './pages/FullMenu'
 import Custom from './pages/Custom'
 import Checkout from './pages/Checkout'
 import Header from "./components/Header"
+import SinglePizza from './pages/SinglePizza'
+import Error from './pages/Error'
 
 function App() {
   // show navbar and footer on all pages other than Home
@@ -26,6 +28,10 @@ function App() {
           <Route path='/checkout'>
             <Header/>
             <Checkout/>
+          </Route>
+          <Route path='/menu/:title' children={<SinglePizza/>}></Route>
+          <Route path='*'>
+            <Error/>
           </Route>
         </Switch>
       </>

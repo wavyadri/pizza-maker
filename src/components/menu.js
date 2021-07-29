@@ -62,7 +62,7 @@ const menu = [
     {
         id: 6,
         category: 'vegetarian',
-        title: 'McCreamy',
+        title: 'mccreamy',
         image: '../components/temp-pizza.png',
         base: 'creamy roasted garlic sauce',
         toppings: ['mozzarella cheese', 'cheddar cheese'],
@@ -74,7 +74,7 @@ const menu = [
     {
         id: 7,
         category: 'classics',
-        title:"Hawai'i High-Five",
+        title:"hawai'i high-five",
         image: '../components/temp-pizza.png',
         base: 'homestyle tomato sauce',
         toppings: ['pineapple', 'mushrooms', 'smoked ham', 'cheddar cheese'],
@@ -86,7 +86,7 @@ const menu = [
     {
         id: 8,
         category: 'classics',
-        title: 'Meat Street',
+        title: 'meat street',
         image: '../components/temp-pizza.png',
         base: 'bbq sauce',
         toppings: ['pepperoni', 'sausage', 'smoked ham', 'cheddar cheese'],
