@@ -1,4 +1,4 @@
-My initial idea was to replicate a custom pizza ordering app which has checkboxes for each topping and adjusts the price based on user input. I wanted to include e-commerce elements such as a cart-counter and checkout so I began to sketch out my ideas on paper which I find to be a useful first step for all of my projects.
+My initial idea was to replicate a custom pizza ordering app which has checkboxes for each topping and adjusts the price and image based on user input. I wanted to include e-commerce elements such as a cart-counter and checkout so I began to sketch out my ideas on paper which I find to be a useful first step for all of my projects.
 
 I created a quick wireframe on Adobe XD to guide me. I designed all of my pizza graphics in Canva. I organized all of my data in arrays in separate files.
 
