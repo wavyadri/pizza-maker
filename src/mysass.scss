@@ -18,6 +18,8 @@ $black: #231c1a;
 // $black: #433633;
 $light: #fefaeb;
 // $light: #fef5d8;
+// $light: #fff;
+$darkerlight: #fdf5d8;
 $primary: #e23d28;
 $danger: #e44d3a;
 $success: #16c172;
@@ -54,6 +56,20 @@ $success: #16c172;
   text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
 }
 
+// navbar text style
+@mixin navbar-text {
+  text-transform: capitalize;
+  font-size: 1.3em;
+  font-weight: 600;
+  font-family: $font-main;
+  color: $black;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: $primary;
+  }
+}
+
 @mixin ease {
   transition: all 0.3s ease-in-out;
 }
@@ -78,108 +94,108 @@ body {
   color: $black;
 }
 
+// H O M E
 #home {
   position: relative;
   overflow: hidden;
-}
 
-// H O M E
-.home-grids {
-  display: flex;
-  z-index: -10;
-  .grid-left {
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: grid;
-    justify-items: start;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    .square {
-      height: 130px;
-      width: 130px;
-      + .s2,
-      + .s4,
-      + .s5,
-      + .s7,
-      + .s10,
-      + .s13 {
-        background-color: $primary;
-        &:hover {
-          transform: scale(1.1);
-          transition: 0.1s ease-in;
-        }
-      }
-    }
-  }
-  .grid-right {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    .square {
-      height: 130px;
-      width: 130px;
-      + .s15,
-      + .s13,
-      + .s12,
-      + .s10,
-      + .s7,
-      + .s4 {
-        background-color: $primary;
-        &:hover {
-          transform: scale(1.1);
-          transition: 0.1s ease-in;
-        }
-      }
-    }
-  }
-}
-
-.home-center {
-  z-index: 10;
-  height: 100vh;
-  @include flex-center();
-
-  .home-text {
-    :nth-child(1) {
-      text-transform: capitalize;
-      font-weight: 300;
-      font-size: 2em;
-      letter-spacing: 0.5rem;
-      color: $black;
-      margin: 1rem;
-      text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
-    }
-    :nth-child(2) {
-      @include pizza-maker();
-    }
-  }
-
-  .home-buttons {
+  .home-grids {
     display: flex;
-    button {
-      text-transform: capitalize;
-      @include no-select();
-      padding: 15px 10px;
-      border: 5px solid $black;
-      font-family: $font-main;
-      font-size: 1em;
-      margin: 2rem 1rem;
-      &:hover {
-        cursor: pointer;
-        transform: translateY(-5px);
-        @include ease();
+    z-index: -10;
+    .grid-left {
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: grid;
+      justify-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      .square {
+        height: 130px;
+        width: 130px;
+        + .s2,
+        + .s4,
+        + .s5,
+        + .s7,
+        + .s10,
+        + .s13 {
+          background-color: $primary;
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.1s ease-in;
+          }
+        }
       }
     }
-    .menu-btn {
-      background-color: $light;
+    .grid-right {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      .square {
+        height: 130px;
+        width: 130px;
+        + .s15,
+        + .s13,
+        + .s12,
+        + .s10,
+        + .s7,
+        + .s4 {
+          background-color: $primary;
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.1s ease-in;
+          }
+        }
+      }
     }
-    .custom-btn {
-      background-color: $black;
-      color: $light;
+  }
+
+  .home-center {
+    z-index: 10;
+    height: 100vh;
+    @include flex-center();
+
+    .home-text {
+      :nth-child(1) {
+        text-transform: capitalize;
+        font-weight: 300;
+        font-size: 2em;
+        letter-spacing: 0.5rem;
+        color: $black;
+        margin: 1rem;
+        text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.2);
+      }
+      :nth-child(2) {
+        @include pizza-maker();
+      }
+    }
+
+    .home-buttons {
+      display: flex;
+      button {
+        text-transform: capitalize;
+        @include no-select();
+        padding: 15px 10px;
+        border: 5px solid $black;
+        font-family: $font-main;
+        font-size: 1em;
+        margin: 2rem 1rem;
+        &:hover {
+          cursor: pointer;
+          transform: translateY(-5px);
+          @include ease();
+        }
+      }
+      .menu-btn {
+        background-color: $light;
+      }
+      .custom-btn {
+        background-color: $black;
+        color: $light;
+      }
     }
   }
 }
@@ -229,17 +245,11 @@ body {
           margin: 0 1em;
           @include ease();
           &:hover {
-            cursor: pointer;
             transform: translateY(-5px);
             @include ease();
           }
           p {
-            text-transform: capitalize;
-            font-size: 1.3em;
-            font-weight: 600;
-            &:hover {
-              color: $primary;
-            }
+            @include navbar-text();
           }
           .checkout {
             @include flex-center();
@@ -375,13 +385,12 @@ body {
     .menu-card {
       box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
       // background-color: #fcf0c5; darker
-      background-color: #fdf5d8;
+      background-color: $darkerlight;
       height: 500px;
       width: 400px;
       @include flex-center();
       position: relative;
       .icons {
-        // height: 2rem;
         position: absolute;
         top: 0;
         width: 100%;
@@ -403,9 +412,7 @@ body {
         height: 300px;
         width: 300px;
         margin: 1rem 0;
-        // background-color: turquoise;
         img {
-          // justify-self: flex-start;
           max-width: 100%;
         }
       }
@@ -430,6 +437,85 @@ body {
             color: $primary;
           }
         }
+      }
+    }
+  }
+}
+
+// S I N G L E  P I Z Z A
+#single {
+  @include flex-center();
+  max-width: 65%;
+  margin: auto;
+  padding: 1rem 1rem;
+  border: 5px solid $primary;
+  background-color: $darkerlight;
+  .back {
+    display: flex;
+    // background-color: $success;
+    .btn {
+      @include flex-center();
+      flex-direction: row;
+      padding: 1rem 1rem;
+      @include navbar-text();
+      p {
+        padding-left: 0.5em;
+      }
+    }
+  }
+  .single-pizza {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 2rem;
+    // background-color: yellow;
+    .image {
+      // background-color: #16c172;
+      @include flex-center();
+      height: 600px;
+      width: 600px;
+      margin: 1rem 0;
+      img {
+        max-width: 100%;
+      }
+    }
+    .info {
+      @include flex-center();
+      justify-content: start;
+      text-transform: capitalize;
+      .title {
+        justify-self: center;
+        @include pizza-maker();
+        font-size: 2.5em;
+        letter-spacing: 5px;
+        text-shadow: none;
+        color: $black;
+        margin-bottom: 0.3em;
+      }
+      .icons {
+        // background-color: pink;
+        width: 6rem;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 1rem;
+        .veg {
+          margin: 0 5px;
+          color: $success;
+        }
+        .spicy {
+          margin: 0 5px;
+          color: $primary;
+        }
+      }
+      .base,
+      .toppings,
+      .price {
+        width: 100%;
+        text-align: start;
       }
     }
   }

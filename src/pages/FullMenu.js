@@ -29,8 +29,6 @@ const FullMenu = () => {
                     const {id, category, title, image, price, vegetarian, spicy} = item;
                     return <div key={id} className='menu-card'>
                         <div className="icons">
-                            {/* {vegetarian && <div className="veg"><FaLeaf/></div>}
-                            {spicy && <div className="spicy"><GoFlame/></div>} */}
                             <div className="veg">{vegetarian && <FaLeaf/>}</div>
                             <div className="spicy">{spicy && <GoFlame/>}</div>
                         </div>
