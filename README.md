@@ -10,4 +10,6 @@ I decided to follow and build out one path at a time. I began with Our Menu.
 First, I worked on the repeating components: Header and Navbar. I discovered how to dynamically render each header based on the url of the page which was pretty awesome! I also enjoyed googling around for more info on React Router during this setup phase, during which I came across useParams which I bookmarked for later.
 Next, I built FullMenu (currently still has a placeholder image). Does anyone else love using the map method in React or is that just me? It's so statisfying to type out my element once they see it perfectly repeated and displayed on my screen!
 
+Currently working on SinglePizza.js to display individual menu items.
+
 To be continued...
