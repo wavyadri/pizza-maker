@@ -254,11 +254,27 @@ body {
           .checkout {
             @include flex-center();
             margin: 0 1em;
+            position: relative;
             .cart-icon {
               font-size: 2em;
               @include ease();
               &:hover {
                 color: $primary;
+              }
+            }
+            .checkout-counter {
+              position: absolute;
+              top: -1rem;
+              right: -1rem;
+              width: 1.75rem;
+              height: 1.75rem;
+              border-radius: 50%;
+              background-color: $primary;
+              @include flex-center();
+              .checkout-total {
+                color: $light;
+                font-weight: 400;
+                font-size: 1rem;
               }
             }
           }

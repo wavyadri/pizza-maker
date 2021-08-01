@@ -33,7 +33,14 @@ const Navbar = () => {
                     <ul className='navbar-list' ref={navbarListRef}>
                         <li><Link className="link" to='/our-menu'><p>our menu</p></Link></li>
                         <li><Link className="link" to='/make-your-own'><p>make your own</p></Link></li>
-                        <li><Link className='link checkout' to='/checkout'><HiOutlineShoppingCart className='cart-icon'/></Link></li>
+                        <li>
+                            <Link className='link checkout' to='/checkout'>
+                                <HiOutlineShoppingCart className='cart-icon'/>
+                                <div className="checkout-counter">
+                                    <p className='checkout-total'>3</p>
+                                </div>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -13,7 +13,7 @@ const FullMenu = () => {
 
     return (
         <section id='menu'>
-            <BestSellers/>
+            {/* <BestSellers/> */}
             <div className="menu-links">
                 <ul className="menu-list">
                     {categories.map((item, index) => {

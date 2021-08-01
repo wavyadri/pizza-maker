@@ -23,6 +23,9 @@ const AppProvider = ({children}) => {
         filterMenu('classics')
     }, [])
 
+    // N A V B A R (for checkout cart)
+    const [cart, setCart] = useState('');
+
     return <AppContext.Provider value={{
         menuItems,
         categories,
