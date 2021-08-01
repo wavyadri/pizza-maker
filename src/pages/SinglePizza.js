@@ -75,9 +75,10 @@ const SinglePizza = () => {
                         <div className="veg">{pizza.vegetarian && <FaLeaf/>}</div>
                         <div className="spicy">{pizza.spicy && <GoFlame/>}</div>
                     </div>
-                    <h2 className='base'>base: {pizza.base}</h2>
-                    <h2 className='toppings'>toppings: {pizza.toppings && pizza.toppings.join(', ')}</h2>
-                    <h2 className='price'>price: ${pizza.price}</h2>
+                    <h2 className='base'><span className='info-data'>base:</span> {pizza.base}</h2>
+                    <h2 className='toppings'><span className='info-data'>toppings:</span>  {pizza.toppings && pizza.toppings.join(', ')}</h2>
+                    <h2 className='price'><span className='info-data'>price:</span>  ${pizza.price}</h2>
+                    <button className='btn'>add</button>
                 </div>
             </div>
         </section>

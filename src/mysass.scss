@@ -483,6 +483,9 @@ body {
       @include flex-center();
       justify-content: start;
       text-transform: capitalize;
+      // background-color: lime;
+      width: 100%;
+      height: 100%;
       .title {
         justify-self: center;
         @include pizza-maker();
@@ -514,8 +517,29 @@ body {
       .base,
       .toppings,
       .price {
-        width: 100%;
+        margin: 1rem;
+        width: 80%;
         text-align: start;
+        font-weight: 400;
+        .info-data {
+          // background-color: magenta;
+          font-weight: 600;
+        }
+      }
+      .btn {
+        @include no-select();
+        padding: 15px 20px;
+        margin: 2rem;
+        text-transform: capitalize;
+        border: 5px solid $primary;
+        background-color: $primary;
+        color: $light;
+        letter-spacing: 3px;
+        font-size: 1rem;
+        &:hover {
+          background-color: $danger;
+          cursor: pointer;
+        }
       }
     }
   }

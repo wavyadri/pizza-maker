@@ -62,7 +62,7 @@ const menu = [
     {
         id: 6,
         category: 'vegetarian',
-        title: 'mccreamy',
+        title: 'McCreamy',
         image: '../components/temp-pizza.png',
         base: 'creamy roasted garlic sauce',
         toppings: ['mozzarella cheese', 'cheddar cheese'],
