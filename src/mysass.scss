@@ -402,6 +402,7 @@ body {
       box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
       // background-color: #fcf0c5; darker
       background-color: $darkerlight;
+      border: 5px solid $primary;
       height: 500px;
       width: 400px;
       @include flex-center();
@@ -466,6 +467,8 @@ body {
   padding: 1rem 1rem;
   border: 5px solid $primary;
   background-color: $darkerlight;
+  box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+
   .back {
     display: flex;
     // background-color: $success;
@@ -552,6 +555,105 @@ body {
         color: $light;
         letter-spacing: 3px;
         font-size: 1rem;
+        &:hover {
+          background-color: $danger;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// C H E C K O U T
+#checkout {
+  @include flex-center();
+  max-width: 65%;
+  margin: 2rem auto;
+  padding: 1rem 1rem;
+  border: 5px solid $primary;
+  box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+  background-color: $darkerlight;
+  .checkout-container {
+    display: flex;
+    flex-direction: column;
+    // background: lime;
+    width: 90%;
+    .checkout-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .item-container {
+        // background-color: magenta;
+        display: flex;
+        align-items: center;
+        height: 150px;
+        margin: 5px 0px;
+        .image {
+          @include flex-center();
+          height: 150px;
+          width: 150px;
+          img {
+            max-width: 100%;
+          }
+        }
+        .item {
+          margin-left: 1rem;
+          @include flex-center();
+          align-items: flex-start;
+          color: $black;
+          font-family: $font-main;
+          .remove {
+            margin-top: 1rem;
+            padding: 5px 5px;
+            text-transform: capitalize;
+            border: 3px solid $primary;
+            background-color: $primary;
+            color: $light;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+            &:hover {
+              background-color: $danger;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .counter {
+        .number {
+          margin: 3px 0px;
+        }
+        .up,
+        .down {
+          color: $primary;
+          font-size: 2rem;
+          &:hover {
+            border: 2px solid $primary;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .checkout-total {
+      display: flex;
+      justify-content: space-between;
+      max-width: 100%;
+      margin: 1rem 0;
+      padding: 1rem 0px;
+      border-top: 2px solid $black;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+    .checkout-confirm {
+      .confirm {
+        margin: 1rem;
+        padding: 5px 10px;
+        text-transform: capitalize;
+        border: 3px solid $primary;
+        background-color: $primary;
+        color: $light;
+        letter-spacing: 3px;
+        font-size: 1.2rem;
         &:hover {
           background-color: $danger;
           cursor: pointer;
