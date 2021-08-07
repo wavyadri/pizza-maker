@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react'
 import menu from './components/menu'
+import cart from './components/cart'
 
 const AppContext = React.createContext();
 
@@ -21,13 +22,17 @@ const AppProvider = ({children}) => {
 
     useEffect(() => {
         filterMenu('classics')
-    }, [])
+     }, [])
 
     // N A V B A R (for checkout cart)
-    const [cart, setCart] = useState('');
+    const [cartAmount, setCartAmount] = useState('');
+
+    // C A R T
+    const [cartItems, setCartItems] = useState(cart);
 
     return <AppContext.Provider value={{
         menuItems,
+        cartItems,
         categories,
         currentCategory,
         filterMenu}}>
