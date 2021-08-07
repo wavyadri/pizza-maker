@@ -8,10 +8,11 @@ import {FaLeaf} from 'react-icons/fa'
 const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
 const SinglePizza = () => {
-    const {menuItems} = useGlobalContext();
+    let item = {id: 1, title: 'haha'};
+    const {menuItems, addItem, pizza, setPizza} = useGlobalContext();
     
     const {title} = useParams();
-    const [pizza, setPizza] = useState([])
+    // const [pizza, setPizza] = useState([])
 
     useEffect(() => {
         // get data from useGlobalContext for the pizza matching our useParams
@@ -40,7 +41,7 @@ const SinglePizza = () => {
                     <h2 className='base'><span className='info-data'>base:</span> {pizza.base}</h2>
                     <h2 className='toppings'><span className='info-data'>toppings:</span>  {pizza.toppings && pizza.toppings.join(', ')}</h2>
                     <h2 className='price'><span className='info-data'>price:</span>  ${pizza.price}</h2>
-                    <button className='btn'>add</button>
+                    <button className='btn' onClick={() => {addItem(pizza)}}>add</button>
                 </div>
             </div>
         </section>

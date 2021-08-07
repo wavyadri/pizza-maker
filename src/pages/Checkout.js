@@ -11,7 +11,7 @@ const Checkout = () => {
         {isModalOpen && <Modal/>}
         <section id='checkout'>
             <div className="checkout-container">
-                {cart.map((item) => {
+                {cart.length > 0 && cart.map((item) => {
                     const {id, title, price, amount} = item;
                     return  <div key={id} className="checkout-item">
                         <div className="item-container">

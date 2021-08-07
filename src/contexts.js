@@ -36,6 +36,10 @@ const AppProvider = ({children}) => {
     // N A V B A R (for checkout cart)
     const [cartAmount, setCartAmount] = useState('');
 
+    // S I N G L E  P I Z Z A
+    // should this stay in context or singlepizza (?)
+    const [pizza, setPizza] = useState([])
+
     // C A R T
     const [cartItems, setCartItems] = useState(cart);
     // useReducer
@@ -51,15 +55,34 @@ const AppProvider = ({children}) => {
         dispatch({type: 'CLOSE_MODAL'})
     }
 
+        // 'add' button in SinglePizza
+    const addItem = (item) => {
+        // const {id, title, image, price, amount} = item;
+        let currCart = state.cart.find(obj => obj.id === item.id);
+        if(currCart === undefined){
+            dispatch({type: 'ADD_ITEM', payload : item})
+            return;
+        }   
+        dispatch({type: 'INCREASE', payload: item.id})
+    }
+
+        // increase qty
+    const increase = (id) => {
+        dispatch({type: 'INCREASE', payload: id})
+    }
+
     return <AppContext.Provider value={{
         menuItems,
         cartItems,
         categories,
         currentCategory,
+        pizza,
+        setPizza,
         ...state,
         filterMenu,
         confirmOrder,
-        closeModal}}>
+        closeModal,
+        addItem}}>
         {children}
     </AppContext.Provider>
 }
