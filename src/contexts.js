@@ -1,8 +1,17 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect, useReducer} from 'react'
 import menu from './components/menu'
 import cart from './components/cart'
+import reducer from './reducer'
 
 const AppContext = React.createContext();
+
+// useReducer initial state
+const initialState = {
+    cart: [],
+    total: 0,
+    amount: 0,
+    isModalOpen: false,
+}
 
 // always access children
 const AppProvider = ({children}) => {
@@ -29,6 +38,9 @@ const AppProvider = ({children}) => {
 
     // C A R T
     const [cartItems, setCartItems] = useState(cart);
+    // useReducer
+    const [state, dispatch] = useReducer(reducer, initialState);
+
 
     return <AppContext.Provider value={{
         menuItems,
