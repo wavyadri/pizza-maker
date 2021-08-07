@@ -40,14 +40,26 @@ const AppProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(cart);
     // useReducer
     const [state, dispatch] = useReducer(reducer, initialState);
-
+        // 'confirm order' button 
+    const confirmOrder = (e) => {
+        e.preventDefault();
+        dispatch({ type: 'CONFIRM_ORDER' })
+    }
+        // 'close' button in modal
+    const closeModal = (e) => {
+        e.preventDefault();
+        dispatch({type: 'CLOSE_MODAL'})
+    }
 
     return <AppContext.Provider value={{
         menuItems,
         cartItems,
         categories,
         currentCategory,
-        filterMenu}}>
+        ...state,
+        filterMenu,
+        confirmOrder,
+        closeModal}}>
         {children}
     </AppContext.Provider>
 }
