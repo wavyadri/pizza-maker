@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Modal from '../components/Modal'
 import {RiArrowUpSLine, RiArrowDownSLine} from 'react-icons/ri'
 import { useGlobalContext } from '../contexts'
+import {BiArrowBack} from 'react-icons/bi'
 
 const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
@@ -11,7 +13,8 @@ const Checkout = () => {
         {isModalOpen && <Modal/>}
         <section id='checkout'>
             <div className="checkout-container">
-                {cart.length > 0 && cart.map((item) => {
+                {cart.length > 0 ? 
+                    cart.map((item) => {
                     const {id, title, price, amount} = item;
                     return  <div key={id} className="checkout-item">
                         <div className="item-container">
@@ -30,15 +33,24 @@ const Checkout = () => {
                             <RiArrowDownSLine className='down'/>
                         </div>
                     </div>
-                })}
+                })
+                :
+                <div className="empty">
+                    <h1>Your cart is empty!</h1>
+                    <Link to='/our-menu' className='btn'>
+                        <BiArrowBack className='icon'/>
+                        <p>our menu</p>
+                    </Link>
+                </div>
+                }
                 <div className="checkout-total">
                     <p>total</p>
                     <p className="price">$16.99</p>
                 </div>
-                {/* if cart.length > 1 show button : nothing */}
                 <div className="checkout-confirm">
-                    {/*  */}
+                    {cart.length > 0 &&
                     <button className="confirm" onClick={confirmOrder}>confirm order</button>
+                    }
                 </div>
             </div>
         </section>
