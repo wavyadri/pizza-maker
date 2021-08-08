@@ -1,6 +1,5 @@
 import React, {useState, useContext, useEffect, useReducer} from 'react'
 import menu from './components/menu'
-import cart from './components/cart'
 import reducer from './reducer'
 
 const AppContext = React.createContext();
@@ -41,7 +40,6 @@ const AppProvider = ({children}) => {
     const [pizza, setPizza] = useState([])
 
     // C A R T
-    const [cartItems, setCartItems] = useState(cart);
     // useReducer
     const [state, dispatch] = useReducer(reducer, initialState);
         // 'confirm order' button 
@@ -54,10 +52,8 @@ const AppProvider = ({children}) => {
         e.preventDefault();
         dispatch({type: 'CLOSE_MODAL'})
     }
-
         // 'add' button in SinglePizza
     const addItem = (item) => {
-        // const {id, title, image, price, amount} = item;
         let currCart = state.cart.find(obj => obj.id === item.id);
         if(currCart === undefined){
             dispatch({type: 'ADD_ITEM', payload : item})
@@ -65,15 +61,21 @@ const AppProvider = ({children}) => {
         }   
         dispatch({type: 'INCREASE', payload: item.id})
     }
-
-        // increase qty
+        // 'remove' button on each item in checkout
+    const removeItem = (id) => {
+        dispatch({ type: 'REMOVE_ITEM', payload: id })
+    }
+        // increase amount by up arrow
     const increase = (id) => {
         dispatch({type: 'INCREASE', payload: id})
+    }
+        // decrease amount by down arrow
+    const decrease = (id) => {
+        dispatch({type: 'DECREASE', payload: id})
     }
 
     return <AppContext.Provider value={{
         menuItems,
-        cartItems,
         categories,
         currentCategory,
         pizza,
@@ -82,7 +84,10 @@ const AppProvider = ({children}) => {
         filterMenu,
         confirmOrder,
         closeModal,
-        addItem}}>
+        addItem,
+        removeItem,
+        increase,
+        decrease}}>
         {children}
     </AppContext.Provider>
 }

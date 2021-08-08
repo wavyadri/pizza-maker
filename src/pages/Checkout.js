@@ -8,7 +8,7 @@ import {BiArrowBack} from 'react-icons/bi'
 const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
 const Checkout = () => {
-    const {cart, confirmOrder, isModalOpen} = useGlobalContext();
+    const {cart, confirmOrder, isModalOpen, removeItem, increase, decrease} = useGlobalContext();
     return <>
         {isModalOpen && <Modal/>}
         <section id='checkout'>
@@ -24,13 +24,13 @@ const Checkout = () => {
                             <div className="item">
                                 <h2 className="title">{title}</h2>
                                 <p className="price">${price}</p>
-                                <button className="remove">remove</button>
+                                <button className="remove" onClick={() => removeItem(id)}>remove</button>
                             </div>
                         </div>
                         <div className="counter">
-                            <RiArrowUpSLine className='up'/>
+                            <RiArrowUpSLine className='up' onClick={() => increase(id)}/>
                             <p className="number">{amount}</p>
-                            <RiArrowDownSLine className='down'/>
+                            <RiArrowDownSLine className='down' onClick={() => decrease(id)}/>
                         </div>
                     </div>
                 })
