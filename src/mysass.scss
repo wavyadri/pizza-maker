@@ -603,6 +603,7 @@ body {
           align-items: flex-start;
           color: $black;
           font-family: $font-main;
+          text-transform: capitalize;
           .remove {
             margin-top: 1rem;
             padding: 5px 5px;
