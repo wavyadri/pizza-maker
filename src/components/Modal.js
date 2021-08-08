@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGlobalContext } from '../contexts'
+import {AiOutlineClose} from 'react-icons/ai'
 
 const Modal = () => {
     const {closeModal} = useGlobalContext();
@@ -10,7 +11,8 @@ const Modal = () => {
                 <h1>thank you!</h1>
                 <p className='modal-text'>Your order has been placed.</p>
                 <button className='btn' onClick={closeModal}>
-                    <p>close</p>
+                    <AiOutlineClose className='icon'/>
+                    {/* <p>close</p> */}
                 </button>
             </div>
         </div>

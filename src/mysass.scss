@@ -426,7 +426,6 @@ body {
     align-items: center;
     .menu-card {
       box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
-      // background-color: #fcf0c5; darker
       background-color: $darkerlight;
       border: 5px solid $primary;
       height: 500px;
@@ -671,20 +670,40 @@ body {
 
 // M O D A L
 #modal {
+  @include flex-center();
+  @include ease();
+  z-index: 100000;
+  height: 100vh;
+  width: 100vw;
   padding: 5rem;
-  background-color: blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // not fully supported on all browsers
+  backdrop-filter: blur(5px);
   .modal-container {
+    background-color: $black;
+    height: auto;
+    width: 700px;
+    padding: 2rem 0;
     @include flex-center();
     h1 {
       @include pizza-maker-mini();
+      font-size: 3rem;
+      margin-bottom: 0rem;
+      color: $light;
     }
     .modal-text {
+      color: $light;
       font-family: $font-main;
       font-size: 1rem;
       margin: 1rem 0;
     }
     .btn {
       @include button();
+      .icon {
+        font-size: 1.5rem;
+      }
     }
   }
 }
