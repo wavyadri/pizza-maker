@@ -56,6 +56,16 @@ $success: #16c172;
   text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
 }
 
+// smaller version of title text
+@mixin pizza-maker-mini {
+  @include pizza-maker();
+  font-size: 2.5em;
+  letter-spacing: 5px;
+  text-shadow: none;
+  color: $black;
+  margin-bottom: 0.3em;
+}
+
 // navbar text style
 @mixin navbar-text {
   text-transform: capitalize;
@@ -67,6 +77,22 @@ $success: #16c172;
   text-decoration: none;
   &:hover {
     color: $primary;
+  }
+}
+
+// buttons
+@mixin button {
+  padding: 5px 5px;
+  text-transform: capitalize;
+  border: 3px solid $primary;
+  background-color: $primary;
+  color: $light;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  text-decoration: none;
+  &:hover {
+    background-color: $danger;
+    cursor: pointer;
   }
 }
 
@@ -471,12 +497,10 @@ body {
 
   .back {
     display: flex;
-    // background-color: $success;
     .btn {
       @include flex-center();
       flex-direction: row;
-      padding: 1rem 1rem;
-      @include navbar-text();
+      @include button();
       p {
         padding-left: 0.5em;
       }
@@ -487,9 +511,7 @@ body {
     grid-template-columns: 1fr 1fr;
     width: 100%;
     margin-top: 2rem;
-    // background-color: yellow;
     .image {
-      // background-color: #16c172;
       @include flex-center();
       height: 600px;
       width: 600px;
@@ -507,12 +529,7 @@ body {
       height: 100%;
       .title {
         justify-self: center;
-        @include pizza-maker();
-        font-size: 2.5em;
-        letter-spacing: 5px;
-        text-shadow: none;
-        color: $black;
-        margin-bottom: 0.3em;
+        @include pizza-maker-mini();
       }
       .icons {
         // background-color: pink;
@@ -541,20 +558,14 @@ body {
         text-align: start;
         font-weight: 400;
         .info-data {
-          // background-color: magenta;
           font-weight: 600;
         }
       }
       .btn {
         @include no-select();
+        @include button();
         padding: 15px 20px;
         margin: 2rem;
-        text-transform: capitalize;
-        border: 5px solid $primary;
-        background-color: $primary;
-        color: $light;
-        letter-spacing: 3px;
-        font-size: 1rem;
         &:hover {
           background-color: $danger;
           cursor: pointer;
@@ -606,17 +617,8 @@ body {
           text-transform: capitalize;
           .remove {
             margin-top: 1rem;
-            padding: 5px 5px;
-            text-transform: capitalize;
-            border: 3px solid $primary;
-            background-color: $primary;
-            color: $light;
-            letter-spacing: 3px;
+            @include button();
             font-size: 0.7rem;
-            &:hover {
-              background-color: $danger;
-              cursor: pointer;
-            }
           }
         }
       }
@@ -635,6 +637,18 @@ body {
         }
       }
     }
+    .empty {
+      @include flex-center();
+      .btn {
+        margin: 1rem 0;
+        @include flex-center();
+        flex-direction: row;
+        @include button();
+        p {
+          padding-left: 5px;
+        }
+      }
+    }
     .checkout-total {
       display: flex;
       justify-content: space-between;
@@ -648,18 +662,33 @@ body {
     .checkout-confirm {
       .confirm {
         margin: 1rem;
-        padding: 5px 10px;
-        text-transform: capitalize;
-        border: 3px solid $primary;
-        background-color: $primary;
-        color: $light;
-        letter-spacing: 3px;
+        @include button();
         font-size: 1.2rem;
         &:hover {
           background-color: $danger;
           cursor: pointer;
         }
       }
+    }
+  }
+}
+
+// M O D A L
+#modal {
+  padding: 5rem;
+  background-color: blue;
+  .modal-container {
+    @include flex-center();
+    h1 {
+      @include pizza-maker-mini();
+    }
+    .modal-text {
+      font-family: $font-main;
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      @include button();
     }
   }
 }
