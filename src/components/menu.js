@@ -10,6 +10,7 @@ const menu = [
         bestseller: false,
         vegetarian: true,
         spicy: false,
+        amount: 1,
     },
     {
         id: 2,
@@ -22,6 +23,7 @@ const menu = [
         bestseller: true,
         vegetarian: true,
         spicy: false,
+        amount: 1,
     },
     {
         id: 3,
@@ -34,6 +36,7 @@ const menu = [
         bestseller: false,
         vegetarian: true,
         spicy: true,
+        amount: 1,
     },
     {
         id: 4,
@@ -46,6 +49,7 @@ const menu = [
         bestseller: false,
         vegetarian: true,
         spicy: false,
+        amount: 1,
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ const menu = [
         bestseller: false,
         vegetarian: false,
         spicy: false,
+        amount: 1,
     },
     {
         id: 6,
@@ -70,6 +75,7 @@ const menu = [
         bestseller: true,
         vegetarian: true,
         spicy: false,
+        amount: 1,
     },
     {
         id: 7,
@@ -82,6 +88,7 @@ const menu = [
         bestseller: true,
         vegetarian: false,
         spicy: false,
+        amount: 1,
     },
     {
         id: 8,
@@ -94,6 +101,7 @@ const menu = [
         bestseller: false,
         vegetarian: false,
         spicy: false,
+        amount: 1,
     },
     {
         id: 9,
@@ -106,6 +114,7 @@ const menu = [
         bestseller: true,
         vegetarian: false,
         spicy: true,
+        amount: 1,
     },
     {
         id: 10,
@@ -118,6 +127,7 @@ const menu = [
         bestseller: true,
         vegetarian: false,
         spicy: false,
+        amount: 1,
     },
     {
         id: 11,
@@ -130,6 +140,7 @@ const menu = [
         bestseller: false,
         vegetarian: false,
         spicy: false,
+        amount: 1,
     },
 ]
 
