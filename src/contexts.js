@@ -35,10 +35,6 @@ const AppProvider = ({children}) => {
     // N A V B A R (for checkout cart)
     const [cartAmount, setCartAmount] = useState('');
 
-    // S I N G L E  P I Z Z A
-    // should this stay in context or singlepizza (?)
-    const [pizza, setPizza] = useState([])
-
     // C A R T
     // useReducer
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -55,10 +51,13 @@ const AppProvider = ({children}) => {
         // 'add' button in SinglePizza
     const addItem = (item) => {
         let currCart = state.cart.find(obj => obj.id === item.id);
-        if(currCart === undefined){
+        // first item added
+        // if(currCart === undefined){
+        if(!currCart){
             dispatch({type: 'ADD_ITEM', payload : item})
             return;
         }   
+        // after first item has already been added
         dispatch({type: 'INCREASE', payload: item.id})
     }
         // 'remove' button on each item in checkout
@@ -74,12 +73,15 @@ const AppProvider = ({children}) => {
         dispatch({type: 'DECREASE', payload: id})
     }
 
+        // get total and amount everytime we update cart
+    useEffect(() => {
+    dispatch({ type: 'GET_TOTALS' })
+    }, [state.cart])
+
     return <AppContext.Provider value={{
         menuItems,
         categories,
         currentCategory,
-        pizza,
-        setPizza,
         ...state,
         filterMenu,
         confirmOrder,

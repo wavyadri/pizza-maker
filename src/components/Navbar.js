@@ -1,9 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react'
+import { useGlobalContext } from '../contexts'
 import {HiOutlineShoppingCart} from 'react-icons/hi'
 import {FaBars} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 
 const Navbar = () => {
+    const {amount} = useGlobalContext();
+
     const [showLinks, setShowLinks] = useState(false);
     // ref for div navbar-links
     const navbarLinksRef = useRef(null); 
@@ -37,7 +40,7 @@ const Navbar = () => {
                             <Link className='link checkout' to='/checkout'>
                                 <HiOutlineShoppingCart className='cart-icon'/>
                                 <div className="checkout-counter">
-                                    <p className='checkout-total'>3</p>
+                                    <p className='checkout-total'>{amount}</p>
                                 </div>
                             </Link>
                         </li>

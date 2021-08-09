@@ -5,7 +5,8 @@ const reducer = (state, action) => {
         case 'CLOSE_MODAL':
             return {...state, cart: [], isModalOpen: false}
         case 'ADD_ITEM':
-            return {...state, cart: [...state.cart, action.payload]}
+            let item = action.payload
+            return {...state, cart: [...state.cart, item]}
         case 'REMOVE_ITEM':
             return {...state, cart: state.cart.filter((item) => item.id !== action.payload)}
         case 'INCREASE':{
@@ -29,8 +30,32 @@ const reducer = (state, action) => {
                 .filter((item) => item.amount !== 0)
             return {...state, cart: tempCart}
         }
-        // default: 
-        //     return state
+        case 'GET_TOTALS': {
+            // destructure right away
+            let {total, amount} = state.cart.reduce((cartTotal, cartItem) => {
+                    // price and amount from state.cart items
+                    const {price, amount} = cartItem
+                    const itemTotal = price*amount
+
+                    // $ total
+                    cartTotal.total += itemTotal
+                    // cart # total
+                    cartTotal.amount += amount
+
+                    // ALWAYS return accumulator
+                    return cartTotal
+                }, 
+                // inital value, our ouptut will be an obj
+                {
+                    total: 0,
+                    amount: 0
+                }
+            )
+            // parse to int, round $ to 2 decimals
+            total = parseFloat(total.toFixed(2))
+
+            return { ...state, total, amount }
+        }
     }
     throw new Error('no matching type')
 }

@@ -9,10 +9,10 @@ const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni
 
 const SinglePizza = () => {
     let item = {id: 1, title: 'haha'};
-    const {menuItems, addItem, pizza, setPizza} = useGlobalContext();
+    const {menuItems, addItem} = useGlobalContext();
     
     const {title} = useParams();
-    // const [pizza, setPizza] = useState([])
+    const [pizza, setPizza] = useState([])
 
     useEffect(() => {
         // get data from useGlobalContext for the pizza matching our useParams
