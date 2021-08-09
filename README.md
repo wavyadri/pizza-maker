@@ -12,6 +12,6 @@ Next, I built FullMenu (currently still has a placeholder image). Does anyone el
 
 Next up was the Checkout. Here I dove into useReducer to manage states of cart items, price, amount of items, and a success modal. I decided against Redux because I don't believe my project reaches the threshold of complexity. I decided against inividually managing each state with useState because as they were all related and it was more that just a couple of state changes, it made the most sense to keep everything organized and together with useReducer.
 
-Currently working on Custom.js to Pizza Maker aka the custom pizza builder.
+Currently working on Custom.js Pizza Maker aka the custom pizza builder!
 
 To be continued...
