@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect, useReducer} from 'react'
 import menu from './components/menu'
+import toppings from './components/toppings'
 import reducer from './reducer'
 
 const AppContext = React.createContext();
@@ -15,15 +16,15 @@ const initialState = {
 // always access children
 const AppProvider = ({children}) => {
 
-    // M E N U
+    // M E N U (Our Menu)
     const [menuItems, setMenuItems] = useState(menu);
     // new array of only unique categories
-    const allCatgeories = [...new Set(menu.map((item) => item.category))];
-    const [categories, setCategories] = useState(allCatgeories)
-    const [currentCategory, setCurrentCategory] = useState('')
+    const allCatgeories = [...new Set(menuItems.map((item) => item.category))];
+    const [categories, setCategories] = useState(allCatgeories);
+    const [currentCategory, setCurrentCategory] = useState('');
 
     const filterMenu = (category) => {
-        const newMenu = menu.filter((item) => item.category === category);
+        const newMenu = menuItems.filter((item) => item.category === category);
         setMenuItems(newMenu);
         setCurrentCategory(category);
     }
@@ -32,10 +33,20 @@ const AppProvider = ({children}) => {
         filterMenu('classics')
      }, [])
 
-    // N A V B A R (for checkout cart)
-    const [cartAmount, setCartAmount] = useState('');
+    // C U S T O M (Make Your Own)
+    const [toppingItems, setToppingItems] = useState(toppings);
+    // new array of unique topping categories
+    const allToppingCategories = [...new Set(toppingItems.map((item) => item.category))];
+    const [toppingCategory, setToppingCategory] = useState(allToppingCategories);
+    const [currentToppingCategory, setCurrentToppingCategory] = useState('');
 
-    // C A R T
+    const filterToppings = (category) => {
+        const newTopping = toppingItems.filter((item) => item.category === category);
+        setToppingItems(newTopping);
+        setCurrentToppingCategory(category);
+    }
+     
+    // C A R T (Checkout & Navbar)
     // useReducer
     const [state, dispatch] = useReducer(reducer, initialState);
         // 'confirm order' button 
@@ -82,8 +93,12 @@ const AppProvider = ({children}) => {
         menuItems,
         categories,
         currentCategory,
+        toppingItems,
+        toppingCategory,
+        currentToppingCategory,
         ...state,
         filterMenu,
+        filterToppings,
         confirmOrder,
         closeModal,
         addItem,
