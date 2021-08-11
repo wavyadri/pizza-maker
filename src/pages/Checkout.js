@@ -48,9 +48,9 @@ const Checkout = () => {
                     <p className="price">${total}</p>
                 </div>
                 <div className="checkout-confirm">
-                    {/* {cart.length > 0 && */}
+                    {cart.length > 0 &&
                     <button className="confirm" onClick={confirmOrder}>confirm order</button>
-                    {/* } */}
+                    }
                 </div>
             </div>
         </section>
