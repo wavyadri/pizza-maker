@@ -24,13 +24,14 @@ const AppProvider = ({children}) => {
     const [currentCategory, setCurrentCategory] = useState('');
 
     const filterMenu = (category) => {
-        const newMenu = menuItems.filter((item) => item.category === category);
+        const newMenu = menu.filter((item) => item.category === category);
         setMenuItems(newMenu);
         setCurrentCategory(category);
     }
 
     useEffect(() => {
         filterMenu('classics')
+        // filterToppings('sauce')
      }, [])
 
     // C U S T O M (Make Your Own)
@@ -41,10 +42,14 @@ const AppProvider = ({children}) => {
     const [currentToppingCategory, setCurrentToppingCategory] = useState('');
 
     const filterToppings = (category) => {
-        const newTopping = toppingItems.filter((item) => item.category === category);
+        const newTopping = toppings.filter((item) => item.category === category);
         setToppingItems(newTopping);
         setCurrentToppingCategory(category);
     }
+
+    useEffect(() => {
+        filterToppings('sauce')
+     }, [])
      
     // C A R T (Checkout & Navbar)
     // useReducer

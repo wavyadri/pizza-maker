@@ -42,7 +42,7 @@ const FullMenu = () => {
                             <Link to='/make-your-own'>details</Link>
                             :
                             <Link to={`/menu/${title}`}>details</Link>
-                         }
+                            }
                         </div>
                     </div>
                 })}
