@@ -43,6 +43,20 @@ $success: #16c172;
   text-align: center;
 }
 
+// all sections
+@mixin section {
+  max-width: 65%;
+  padding: 1rem;
+  margin: 2rem auto;
+}
+
+// organe border
+@mixin border {
+  border: 5px solid $primary;
+  background-color: $darkerlight;
+  box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
+}
+
 // logo
 @mixin pizza-maker {
   text-transform: capitalize;
@@ -425,9 +439,7 @@ body {
     justify-items: center;
     align-items: center;
     .menu-card {
-      box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
-      background-color: $darkerlight;
-      border: 5px solid $primary;
+      @include border();
       height: 500px;
       width: 400px;
       @include flex-center();
@@ -487,20 +499,15 @@ body {
 // S I N G L E  P I Z Z A
 #single {
   @include flex-center();
-  max-width: 65%;
-  margin: auto;
-  padding: 1rem 1rem;
-  border: 5px solid $primary;
-  background-color: $darkerlight;
-  box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
-
+  @include section();
+  @include border();
   .back {
     display: flex;
     .btn {
       @include flex-center();
       flex-direction: row;
       @include button();
-      margin: 2rem;
+      margin: 1rem;
       p {
         padding-left: 0.5em;
       }
@@ -575,12 +582,8 @@ body {
 // C H E C K O U T
 #checkout {
   @include flex-center();
-  max-width: 65%;
-  margin: 2rem auto;
-  padding: 1rem 1rem;
-  border: 5px solid $primary;
-  box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
-  background-color: $darkerlight;
+  @include section();
+  @include border();
   .checkout-container {
     display: flex;
     flex-direction: column;
@@ -681,6 +684,7 @@ body {
   // not fully supported on all browsers
   backdrop-filter: blur(5px);
   .modal-container {
+    box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
     background-color: $black;
     height: auto;
     width: 700px;
@@ -704,5 +708,49 @@ body {
         font-size: 1.5rem;
       }
     }
+  }
+}
+
+// C U S T O M
+#custom {
+  @include section();
+  @include border();
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  // background-color: blue;
+  .custom-toppings {
+    justify-self: center;
+    @include flex-center();
+    width: 80%;
+    height: auto;
+    // background-color: blueviolet;
+    .toppings-list {
+      list-style: none;
+      text-transform: capitalize;
+      text-align: center;
+      .category {
+        @include pizza-maker-mini();
+        padding: 0 1rem;
+        font-size: 2rem;
+        display: inline-block;
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+          @include ease();
+        }
+      }
+      .active {
+        color: $primary;
+      }
+    }
+    .topping-items {
+      list-style: none;
+    }
+  }
+  .custom-pizza {
+    justify-self: center;
+    background-color: cadetblue;
   }
 }
