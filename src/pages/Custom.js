@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useGlobalContext } from '../contexts'
 
 const Custom = () => {
-    const {filterToppings, toppingItems, toppingCategory, currentToppingCategory, addItem} = useGlobalContext();
+    const {menuItems, filterToppings, toppingItems, toppingCategory, currentToppingCategory, addItem} = useGlobalContext();
+    const {id, category, title, price, image, vegetarian, spicy} = toppingItems;
+
     return (
         <section id='custom'>
             <div className="custom-toppings">
@@ -13,14 +15,25 @@ const Custom = () => {
                         className={`category ${item === currentToppingCategory && 'active'}`}>{item}</li>
                     })}
                 </ul>
-                <ul className="toppings-items">
+                <form className="toppings-items">
                     {toppingItems.map((item) => {
-                        const {id, catgeory, title, price, image, vegetarian, spicy} = item;
-                        return <li key={id}>
-                            {title}
-                        </li>
+                        const {id, category, title, price, image, vegetarian, spicy} = item;
+                        return <>
+                            <label className='items-container' key={id} for={title}>
+                                <input 
+                                    type={category === 'sauce' ? 'radio' : 'checkbox'} 
+                                    name={category}
+                                    value={`option-${id}`}
+                                    // checked={title === 'homestyle tomato sauce' ? 'true' : ''}
+                                    className='input' 
+                                    // add an onClick event listener
+                                />
+                                <p className='title'>{title}</p>
+                                {/* <span className="checkmark"></span> */}
+                            </label>
+                        </>
                     })}
-                </ul>
+                </form>
             </div>
             <div className="custom-pizza">
                 <h1>pizza image</h1>

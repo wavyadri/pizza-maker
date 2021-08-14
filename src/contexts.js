@@ -2,10 +2,11 @@ import React, {useState, useContext, useEffect, useReducer} from 'react'
 import menu from './components/menu'
 import toppings from './components/toppings'
 import reducer from './reducer'
+import reducerCustom from './reducerCustom'
 
 const AppContext = React.createContext();
 
-// useReducer initial state
+// C H E C K O U T useReducer initial state
 const initialState = {
     cart: [],
     total: 0,
@@ -13,10 +14,27 @@ const initialState = {
     isModalOpen: false,
 }
 
+// C U S T O M useReducer initial state
+const initialStateCustom = {
+    pizza: [
+        {
+            id: 1,
+            category:'sauce',
+            title: 'homestyle tomato sauce',
+            price: 0.50,
+            image: 'y',
+            vegetarian: true,
+            spicy: false,
+            checked: true,
+        },
+    ],
+    totalCustom: 9.99,
+}
+
 // always access children
 const AppProvider = ({children}) => {
 
-    // M E N U (Our Menu)
+    // M E N U (categories)
     const [menuItems, setMenuItems] = useState(menu);
     // new array of only unique categories
     const allCatgeories = [...new Set(menuItems.map((item) => item.category))];
@@ -24,6 +42,7 @@ const AppProvider = ({children}) => {
     const [currentCategory, setCurrentCategory] = useState('');
 
     const filterMenu = (category) => {
+        // return items matching category param
         const newMenu = menu.filter((item) => item.category === category);
         setMenuItems(newMenu);
         setCurrentCategory(category);
@@ -31,24 +50,6 @@ const AppProvider = ({children}) => {
 
     useEffect(() => {
         filterMenu('classics')
-        // filterToppings('sauce')
-     }, [])
-
-    // C U S T O M (Make Your Own)
-    const [toppingItems, setToppingItems] = useState(toppings);
-    // new array of unique topping categories
-    const allToppingCategories = [...new Set(toppingItems.map((item) => item.category))];
-    const [toppingCategory, setToppingCategory] = useState(allToppingCategories);
-    const [currentToppingCategory, setCurrentToppingCategory] = useState('');
-
-    const filterToppings = (category) => {
-        const newTopping = toppings.filter((item) => item.category === category);
-        setToppingItems(newTopping);
-        setCurrentToppingCategory(category);
-    }
-
-    useEffect(() => {
-        filterToppings('sauce')
      }, [])
      
     // C A R T (Checkout & Navbar)
@@ -93,6 +94,28 @@ const AppProvider = ({children}) => {
     useEffect(() => {
     dispatch({ type: 'GET_TOTALS' })
     }, [state.cart])
+
+    // C U S T O M (categories)
+    const [toppingItems, setToppingItems] = useState(toppings);
+    // new array of unique topping categories
+    const allToppingCategories = [...new Set(toppingItems.map((item) => item.category))];
+    const [toppingCategory, setToppingCategory] = useState(allToppingCategories);
+    const [currentToppingCategory, setCurrentToppingCategory] = useState('');
+
+    const filterToppings = (category) => {
+        const newTopping = toppings.filter((item) => item.category === category);
+        setToppingItems(newTopping);
+        setCurrentToppingCategory(category);
+    }
+
+    useEffect(() => {
+        filterToppings('sauce')
+     }, [])
+
+    // C U S T O M (handle states)
+    // useReducer
+    const [stateCustom, dispatchCustom] = useReducer(reducerCustom, initialStateCustom);
+
 
     return <AppContext.Provider value={{
         menuItems,

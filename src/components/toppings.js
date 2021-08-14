@@ -7,6 +7,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 2,
@@ -16,6 +18,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 3,
@@ -25,6 +29,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 4,
@@ -34,6 +40,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 5,
@@ -43,6 +51,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 6,
@@ -52,6 +62,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 7,
@@ -61,6 +73,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 8,
@@ -70,6 +84,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 9,
@@ -79,6 +95,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 10,
@@ -88,6 +106,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 11,
@@ -97,6 +117,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 12,
@@ -105,7 +127,9 @@ const toppings = [
         price: 0.50,
         image: 'y',
         vegetarian: true,
-        spicy: false,   
+        spicy: false,
+        checked: false,
+        amount: 1,   
     },
     {
         id: 13,
@@ -115,6 +139,8 @@ const toppings = [
         image: 'y',
         vegetarian: false,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 14,
@@ -124,6 +150,8 @@ const toppings = [
         image: 'y',
         vegetarian: false,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 15,
@@ -133,6 +161,8 @@ const toppings = [
         image: 'y',
         vegetarian: false,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 16,
@@ -142,6 +172,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 17,
@@ -151,6 +183,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 18,
@@ -160,6 +194,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: true,
+        checked: false,
+        amount: 1,
     },
     {
         id: 19,
@@ -169,6 +205,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: false,
+        checked: false,
+        amount: 1,
     },
     {
         id: 20,
@@ -178,6 +216,8 @@ const toppings = [
         image: 'y',
         vegetarian: true,
         spicy: true,
+        checked: false,
+        amount: 1,
     },
 ]
 
