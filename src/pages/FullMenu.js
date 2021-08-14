@@ -37,7 +37,11 @@ const FullMenu = () => {
                         </div>
                         <div className="text">
                             <h2>{title}</h2>
-                            <p>${price}</p>
+                            {category === 'custom' ?
+                                <p>${price} + toppings</p>
+                            :
+                                <p>${price}</p>
+                            }
                             {category === 'custom' ?
                             <Link to='/make-your-own'>details</Link>
                             :
