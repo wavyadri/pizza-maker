@@ -7,6 +7,14 @@ const reducer = (state, action) => {
         case 'ADD_ITEM':
             let item = action.payload
             return {...state, cart: [...state.cart, item]}
+        case 'ADD_CUSTOM_ITEM':
+            let tempCart = state.cart.map((item) => {
+                if(item.id === action.payload){
+                   return {...item, price: item.price + action.total}
+                }
+                return item
+            })
+            return {...state, cart: tempCart}
         case 'REMOVE_ITEM':
             return {...state, cart: state.cart.filter((item) => item.id !== action.payload)}
         case 'INCREASE':{

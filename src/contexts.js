@@ -16,19 +16,8 @@ const initialState = {
 
 // C U S T O M useReducer initial state
 const initialStateCustom = {
-    pizza: [
-        {
-            id: 1,
-            category:'sauce',
-            title: 'homestyle tomato sauce',
-            price: 0.50,
-            image: 'y',
-            vegetarian: true,
-            spicy: false,
-            checked: true,
-        },
-    ],
-    totalCustom: 9.99,
+    toppings: [],
+    total: 9.99,
 }
 
 // always access children
@@ -69,7 +58,7 @@ const AppProvider = ({children}) => {
     const addItem = (item) => {
         let currCart = state.cart.find(obj => obj.id === item.id);
         // first item added
-        // if(currCart === undefined){
+        // if(currCart === undefined)
         if(!currCart){
             dispatch({type: 'ADD_ITEM', payload : item})
             return;
@@ -77,6 +66,20 @@ const AppProvider = ({children}) => {
         // after first item has already been added
         dispatch({type: 'INCREASE', payload: item.id})
     }
+
+        // add custom item
+    const addCustomItem = (item, total) => {
+        let currCart = state.cart.find(obj => obj.id === item.id);
+        // if(currCart === undefined)
+        if(!currCart){
+            // this way we can update the total of the custom item
+            dispatch({type: 'ADD_CUSTOM_ITEM', payload: item, total: total})
+            return;
+        }   
+        // after first item has already been added
+        dispatch({type: 'INCREASE', payload: item.id})
+    }
+
         // 'remove' button on each item in checkout
     const removeItem = (id) => {
         dispatch({ type: 'REMOVE_ITEM', payload: id })
@@ -112,10 +115,31 @@ const AppProvider = ({children}) => {
         filterToppings('sauce')
      }, [])
 
+
     // C U S T O M (handle states)
     // useReducer
     const [stateCustom, dispatchCustom] = useReducer(reducerCustom, initialStateCustom);
 
+        // toggle topping on pizza
+    const toggleTopping = (item) => {
+        let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
+        console.log(currToppings)
+        console.log(stateCustom.toppings)
+
+         // if it doesn't already exist, add it
+        if(!currToppings){
+            // this way we can update the total of the custom item
+            dispatchCustom({ type: 'ADD_TOPPING', payload: item })
+            return;
+        } 
+        // if it does already exist, remove it
+        if(currToppings) {
+        dispatchCustom({type: 'REMOVE_TOPPING', payload: item})
+        }
+
+    //     // for RADIO, each click removes all other sauces
+    //     dispatchCustom({type: 'RADIO_TOPPING'})
+    }
 
     return <AppContext.Provider value={{
         menuItems,
@@ -132,7 +156,9 @@ const AppProvider = ({children}) => {
         addItem,
         removeItem,
         increase,
-        decrease}}>
+        decrease,
+        ...stateCustom,
+        toggleTopping,}}>
         {children}
     </AppContext.Provider>
 }
