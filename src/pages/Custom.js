@@ -12,6 +12,9 @@ const Custom = () => {
         setPizza(newPizza);
     },[])
 
+    const [Checked, setChecked] = useState(false);
+
+
     return (
         <section id='custom'>
             <div className="custom-toppings">
@@ -28,12 +31,14 @@ const Custom = () => {
                         return <>
                             <label className='items-container' key={id} for={title}>
                                 <input
-                                    key={id} 
+                                    // key={id} 
                                     type={category === 'sauce' ? 'radio' : 'checkbox'} 
                                     name={category}
                                     value={`option-${id}`}
+                                    defaultChecked={checked}
                                     // checked={title === 'homestyle tomato sauce' ? 'true' : ''}
-                                    className={checked ? 'input checked' : 'input'} 
+                                    // className={isChecked ? 'input checked' : 'input'}
+                                    onClick={() => setChecked(!checked)} 
                                     onClick={category === 'sauce' ?
                                     () => radioTopping(item)
                                     :

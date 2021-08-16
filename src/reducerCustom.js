@@ -1,8 +1,15 @@
 const reducerCustom = (state, action) => {
     switch(action.type) {
         case 'ADD_TOPPING':
+            console.log(action.payload.checked)
             action.payload.checked = true;
-            return {...state, toppings: [...state.toppings, action.payload], total: parseFloat((state.total + action.payload.price).toFixed(2))}
+            console.log(action.payload.checked)
+            return {
+                ...state, 
+                toppings: [...state.toppings, action.payload], 
+                // toppings: [...state.toppings.find((item) => item === action.payload).map((item) => item.checked === true)], 
+                total: parseFloat((state.total + action.payload.price).toFixed(2)),
+            }
         case 'REMOVE_TOPPING':
             action.payload.checked = false;
             console.log([...state.toppings])

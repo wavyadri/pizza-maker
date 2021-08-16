@@ -18,7 +18,16 @@ const initialState = {
 const initialStateCustom = {
     toppings: [],
     total: 9.99,
+    // allToppings: [toppings]
 }
+
+//ok it's in there
+console.log(initialStateCustom.allToppings)
+
+// spread practice
+let array = [[1,2,3,4,5]]
+console.log(array)
+console.log(...array)
 
 // always access children
 const AppProvider = ({children}) => {
@@ -155,21 +164,22 @@ const AppProvider = ({children}) => {
         menuItems,
         categories,
         currentCategory,
-        toppingItems,
-        toppingCategory,
-        currentToppingCategory,
         ...state,
         filterMenu,
-        filterToppings,
         confirmOrder,
         closeModal,
         addItem,
         removeItem,
         increase,
         decrease,
+        toppingItems,
+        toppingCategory,
+        currentToppingCategory,
         ...stateCustom,
+        filterToppings,
         checkTopping,
-        radioTopping,}}>
+        radioTopping,
+        }}>
         {children}
     </AppContext.Provider>
 }
