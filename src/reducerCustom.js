@@ -1,22 +1,40 @@
 const reducerCustom = (state, action) => {
     switch(action.type) {
         case 'ADD_TOPPING':
-            console.log(action.payload.checked)
             action.payload.checked = true;
-            console.log(action.payload.checked)
             return {
                 ...state, 
                 toppings: [...state.toppings, action.payload], 
-                // toppings: [...state.toppings.find((item) => item === action.payload).map((item) => item.checked === true)], 
-                total: parseFloat((state.total + action.payload.price).toFixed(2)),
             }
         case 'REMOVE_TOPPING':
             action.payload.checked = false;
-            console.log([...state.toppings])
-            return {...state, toppings: [...state.toppings.filter((item) => item !== action.payload)], total: parseFloat((state.total - action.payload.price).toFixed(2))}
-            // return {...state, toppings: [state.toppings.filter((item) => item.id !== action.payload)], total: parseFloat((state.total - action.payload.price).toFixed(2))}
-            // return {...state, cart: state.cart.filter((item) => item.id !== action.payload)}
-    
+            return {
+                ...state, 
+                toppings: [...state.toppings.filter((item) => item !== action.payload)], 
+            }
+        case 'ADD_RADIO_TOPPING':
+            action.payload.checked = true;
+            // remove all sauces from toppings, only 1 sauce per pizza
+            let noSauce = [...state.toppings.filter((item) => item.category !== action.payload.category)]
+            return {
+                ...state,
+                // add current sauce
+                toppings: [...noSauce, action.payload],
+            }
+        case 'PERSIST_RADIO_TOPPING':
+            return {
+                ...state, 
+                toppings: [...state.toppings], 
+            }
+
+        case 'GET_TOTALS': {
+            let totalFinal = state.toppings.reduce((tot, arr) => {
+                //return the sum with previous value
+                return parseFloat((tot + arr.price).toFixed(2))
+            // starting value is 9.99, the custom pizza base price
+            }, 9.99);
+            return {...state, total: totalFinal}
+        }
     }
 }
 

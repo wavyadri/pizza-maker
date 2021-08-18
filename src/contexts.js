@@ -18,16 +18,7 @@ const initialState = {
 const initialStateCustom = {
     toppings: [],
     total: 9.99,
-    // allToppings: [toppings]
 }
-
-//ok it's in there
-console.log(initialStateCustom.allToppings)
-
-// spread practice
-let array = [[1,2,3,4,5]]
-console.log(array)
-console.log(...array)
 
 // always access children
 const AppProvider = ({children}) => {
@@ -143,23 +134,26 @@ const AppProvider = ({children}) => {
         dispatchCustom({type: 'REMOVE_TOPPING', payload: item})
     }
 
-     // for RADIO, each click removes all other sauces
+        // for RADIO, each click removes all other sauces
     const radioTopping = (item) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
 
         // if no sauce exists add
-        // if any sauce exists
-
         if(!currToppings){
             // this way we can update the total of the custom item
-            dispatchCustom({ type: 'ADD_TOPPING', payload: item })
+            dispatchCustom({ type: 'ADD_RADIO_TOPPING', payload: item })
+            // dispatchCustom({ type: 'ADD_TOPPING', payload: item })
             return;
         } 
 
-        dispatchCustom({type: 'RADIO_TOPPING', payload: item})
+        dispatchCustom({type: 'PERSIST_RADIO_TOPPING', payload: item})
     }
-  
 
+        // get total and amount everytime we update cart
+    useEffect(() => {
+    dispatchCustom({ type: 'GET_TOTALS' })
+    }, [stateCustom.toppings])
+  
     return <AppContext.Provider value={{
         menuItems,
         categories,

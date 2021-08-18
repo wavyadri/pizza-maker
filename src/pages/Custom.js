@@ -14,7 +14,6 @@ const Custom = () => {
 
     const [Checked, setChecked] = useState(false);
 
-
     return (
         <section id='custom'>
             <div className="custom-toppings">
