@@ -17,11 +17,14 @@ const initialState = {
 // C U S T O M useReducer initial state
 const initialStateCustom = {
     toppings: [],
-    total: 9.99,
+    totalCustom: 9.99,
 }
 
 // always access children
 const AppProvider = ({children}) => {
+
+    // M E N U (full menu)
+    const [fullMenu, setFullMenu] = useState(menu)
 
     // M E N U (categories)
     const [menuItems, setMenuItems] = useState(menu);
@@ -119,11 +122,15 @@ const AppProvider = ({children}) => {
     // C U S T O M (handle states)
     // useReducer
     const [stateCustom, dispatchCustom] = useReducer(reducerCustom, initialStateCustom);
+        // 'confirm order' button 
+    const addOrder = (e) => {
+        e.preventDefault();
+        dispatchCustom({ type: 'CONFIRM_ORDER' })
+    }
 
         // toggle topping on pizza
     const checkTopping = (item) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
-
         // if it doesn't already exist, add it
         if(!currToppings){
             // this way we can update the total of the custom item
@@ -137,7 +144,6 @@ const AppProvider = ({children}) => {
         // for RADIO, each click removes all other sauces
     const radioTopping = (item) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
-
         // if no sauce exists add
         if(!currToppings){
             // this way we can update the total of the custom item
@@ -155,6 +161,7 @@ const AppProvider = ({children}) => {
     }, [stateCustom.toppings])
   
     return <AppContext.Provider value={{
+        fullMenu,
         menuItems,
         categories,
         currentCategory,
@@ -171,6 +178,7 @@ const AppProvider = ({children}) => {
         currentToppingCategory,
         ...stateCustom,
         filterToppings,
+        addOrder,
         checkTopping,
         radioTopping,
         }}>

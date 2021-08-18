@@ -2,17 +2,30 @@ import React, {useState, useEffect} from 'react'
 import { useGlobalContext } from '../contexts'
 
 const Custom = () => {
-    const {menuItems, addItem, toppings, total, filterToppings, toppingItems, toppingCategory, currentToppingCategory, checkTopping, radioTopping} = useGlobalContext();
-    const {id, category, title, price, image, vegetarian, spicy} = toppingItems;
+    const {
+        fullMenu,
+        menuItems, 
+        addItem, 
+        toppings, 
+        totalCustom, 
+        filterToppings, 
+        toppingItems, 
+        toppingCategory, 
+        currentToppingCategory, 
+        checkTopping, 
+        radioTopping,
+        addOrder,
+    } = useGlobalContext();
 
-    const [pizza, setPizza] = useState([])
+    const addCustomPizza = () => {
+        // search full menu for custom pizza
+        let newPizza = fullMenu.find((item) => item.category === 'custom');
+        if (newPizza) {
+            newPizza.price = totalCustom
+        }
+        addItem(newPizza)
+    }
 
-    useEffect(() => {
-        const newPizza = menuItems.find((item) => item.category === 'custom');
-        setPizza(newPizza);
-    },[])
-
-    const [Checked, setChecked] = useState(false);
 
     return (
         <section id='custom'>
@@ -35,9 +48,6 @@ const Custom = () => {
                                     name={category}
                                     value={`option-${id}`}
                                     defaultChecked={checked}
-                                    // checked={title === 'homestyle tomato sauce' ? 'true' : ''}
-                                    // className={isChecked ? 'input checked' : 'input'}
-                                    onClick={() => setChecked(!checked)} 
                                     onClick={category === 'sauce' ?
                                     () => radioTopping(item)
                                     :
@@ -53,8 +63,7 @@ const Custom = () => {
             </div>
             <div className="custom-pizza">
                 <h1>pizza image</h1>
-                {/* test */}
-                <h1>{total}</h1>
+                <h1>{totalCustom}</h1>
                 {toppings.map((item) => {
                     const {id, title, checked} = item;
                     return <div key={id} className="topping">
@@ -69,11 +78,11 @@ const Custom = () => {
                 })}
             </div>
             {/* make this span both columns */}
-            <div className="custom-total">${total}</div>
+            <div className="custom-total">${totalCustom}</div>
             {/* make this span both columns */}
             <div className="custom-add">
                 {/* total needs to be updated */}
-                <button className='btn' onClick={() => {addItem(pizza)}}>add</button>
+                <button className='btn' onClick={() => {addCustomPizza()}}>add</button>
             </div>
         </section>
     )

@@ -33,7 +33,7 @@ const reducerCustom = (state, action) => {
                 return parseFloat((tot + arr.price).toFixed(2))
             // starting value is 9.99, the custom pizza base price
             }, 9.99);
-            return {...state, total: totalFinal}
+            return {...state, totalCustom: totalFinal}
         }
     }
 }
