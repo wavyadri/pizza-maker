@@ -4,7 +4,6 @@ import { useGlobalContext } from '../contexts'
 const Custom = () => {
     const {
         fullMenu,
-        menuItems, 
         addItem, 
         toppings, 
         totalCustom, 
@@ -18,14 +17,19 @@ const Custom = () => {
     } = useGlobalContext();
 
     const addCustomPizza = () => {
-        // search full menu for custom pizza
+        // variable to add new custom pizzas to checkout with different prices and ids
+        let finalPizza;
+
+        // search full menu for custom pizza and update price
         let newPizza = fullMenu.find((item) => item.category === 'custom');
         if (newPizza) {
-            newPizza.price = totalCustom
+            finalPizza = {...newPizza, price: totalCustom, id: Date.now()}
+            // newPizza.price = totalCustom
         }
-        addItem(newPizza)
+        addItem(finalPizza)
+        // addOrder();
+        addOrder(toppings);
     }
-
 
     return (
         <section id='custom'>
@@ -43,11 +47,11 @@ const Custom = () => {
                         return <>
                             <label className='items-container' key={id} for={title}>
                                 <input
-                                    // key={id} 
+                                    key={id} 
                                     type={category === 'sauce' ? 'radio' : 'checkbox'} 
                                     name={category}
                                     value={`option-${id}`}
-                                    defaultChecked={checked}
+                                    checked={checked}
                                     onClick={category === 'sauce' ?
                                     () => radioTopping(item)
                                     :
