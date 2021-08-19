@@ -28,7 +28,7 @@ const Custom = () => {
         }
         // add as item to checkout cart
         addItem(finalPizza)
-        completeCustomPizza();
+        completeCustomPizza(toppings);
     }
 
     return (
@@ -85,7 +85,6 @@ const Custom = () => {
             <div className="custom-total">${totalCustom}</div>
             {/* make this span both columns */}
             <div className="custom-add">
-                {/* total needs to be updated */}
                 <button className='btn' onClick={() => {addCustomPizza()}}>add</button>
             </div>
         </section>

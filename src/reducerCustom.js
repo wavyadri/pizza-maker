@@ -13,13 +13,20 @@ const reducerCustom = (state, action) => {
                 toppings: [...state.toppings.filter((item) => item !== action.payload)], 
             }
         case 'ADD_RADIO_TOPPING':
-            // first remove all sauces from toppings, only 1 sauce per pizza
+            // this code represents typical radio button behavior so there is only 1 sauce per pizza
+            // filter current toppings for any sauces
+            let sauceToppings = state.toppings.filter((item) => item.category === 'sauce')
+            // if there is any sauce, uncheck it
+            if (sauceToppings) {
+                sauceToppings.map(item => item.checked = false);
+            }
+            // remove all sauces from current toppings
             let noSauce = [...state.toppings.filter((item) => item.category !== action.payload.category)]
-            // next set payload.checked to true so radio button is checked
+            // set target sauce to true so radio button is checked
             action.payload.checked = true;
             return {
                 ...state,
-                // add current sauce
+                // add current sauce to toppings
                 toppings: [...noSauce, action.payload],
             }
         case 'PERSIST_RADIO_TOPPING':
