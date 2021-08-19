@@ -13,7 +13,7 @@ const toppings = [
     {
         id: 2,
         category:'sauce',
-        title: 'bbq sauce',
+        title: 'BBQ sauce',
         price: 0.50,
         image: 'y',
         vegetarian: true,

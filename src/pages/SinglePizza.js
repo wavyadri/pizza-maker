@@ -9,7 +9,6 @@ import image2 from '../images/temp-pizza.png'
 const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
 const SinglePizza = () => {
-    // let item = {id: 1, title: 'haha'};
     const {menuItems, addItem} = useGlobalContext();
     
     const {title} = useParams();

@@ -1,5 +1,4 @@
 import React from 'react'
-import BestSellers from '../components/Bestsellers'
 import { useGlobalContext } from '../contexts'
 import menu from '../components/menu'
 import { Link } from 'react-router-dom'
@@ -13,7 +12,6 @@ const FullMenu = () => {
 
     return (
         <section id='menu'>
-            {/* <BestSellers/> */}
             <div className="menu-links">
                 <ul className="menu-list">
                     {categories.map((item, index) => {
