@@ -38,7 +38,7 @@ const FullMenu = () => {
                         <div className="text">
                             <h2>{title}</h2>
                             {category === 'custom' ?
-                                <p>${price} + toppings</p>
+                                <p>$9.99 + toppings</p>
                             :
                                 <p>${price}</p>
                             }
