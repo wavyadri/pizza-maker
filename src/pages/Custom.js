@@ -13,7 +13,7 @@ const Custom = () => {
         currentToppingCategory, 
         checkTopping, 
         radioTopping,
-        addOrder,
+        completeCustomPizza,
     } = useGlobalContext();
 
     const addCustomPizza = () => {
@@ -26,9 +26,9 @@ const Custom = () => {
             finalPizza = {...newPizza, price: totalCustom, id: Date.now()}
             // newPizza.price = totalCustom
         }
+        // add as item to checkout cart
         addItem(finalPizza)
-        // addOrder();
-        addOrder(toppings);
+        completeCustomPizza();
     }
 
     return (

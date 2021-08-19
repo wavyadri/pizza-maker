@@ -60,29 +60,16 @@ const AppProvider = ({children}) => {
         // 'add' button in SinglePizza
     const addItem = (item) => {
         let currCart = state.cart.find(obj => obj.id === item.id);
+        let currCartCustom = state.cart.find((obj) => obj.name === item.name)
         // first item added
         // if(currCart === undefined)
-        if(!currCart){
+        if(!currCart || currCartCustom){
             dispatch({type: 'ADD_ITEM', payload : item})
             return;
-        }   
+        } 
         // after first item has already been added
         dispatch({type: 'INCREASE', payload: item.id})
     }
-
-    //     // add custom item
-    // const addCustomItem = (item, total) => {
-    //     let currCart = state.cart.find(obj => obj.id === item.id);
-    //     // if(currCart === undefined)
-    //     if(!currCart){
-    //         // this way we can update the total of the custom item
-    //         dispatch({type: 'ADD_CUSTOM_ITEM', payload: item, total: total})
-    //         return;
-    //     }   
-    //     // after first item has already been added
-    //     dispatch({type: 'INCREASE', payload: item.id})
-    // }
-
         // 'remove' button on each item in checkout
     const removeItem = (id) => {
         dispatch({ type: 'REMOVE_ITEM', payload: id })
@@ -123,9 +110,9 @@ const AppProvider = ({children}) => {
     // useReducer
     const [stateCustom, dispatchCustom] = useReducer(reducerCustom, initialStateCustom);
         // 'confirm order' button 
-    const addOrder = (e) => {
-        e.preventDefault();
-        dispatchCustom({ type: 'CONFIRM_ORDER' })
+    const completeCustomPizza = () => {
+        dispatchCustom({ type: 'ADD_ORDER' })
+        // dispatchCustom({ type: 'ADD_ORDER', payload: item })
     }
 
         // toggle topping on pizza
@@ -133,7 +120,6 @@ const AppProvider = ({children}) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
         // if it doesn't already exist, add it
         if(!currToppings){
-            // this way we can update the total of the custom item
             dispatchCustom({ type: 'ADD_TOPPING', payload: item })
             return;
         } 
@@ -144,17 +130,14 @@ const AppProvider = ({children}) => {
         // for RADIO, each click removes all other sauces
     const radioTopping = (item) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
-        // if no sauce exists add
+        // if no sauce exists, add
         if(!currToppings){
-            // this way we can update the total of the custom item
             dispatchCustom({ type: 'ADD_RADIO_TOPPING', payload: item })
-            // dispatchCustom({ type: 'ADD_TOPPING', payload: item })
             return;
-        } 
-
+        }
+        // if double clicked, do nothing and persist state
         dispatchCustom({type: 'PERSIST_RADIO_TOPPING', payload: item})
     }
-
         // get total and amount everytime we update cart
     useEffect(() => {
     dispatchCustom({ type: 'GET_TOTALS' })
@@ -178,7 +161,7 @@ const AppProvider = ({children}) => {
         currentToppingCategory,
         ...stateCustom,
         filterToppings,
-        addOrder,
+        completeCustomPizza,
         checkTopping,
         radioTopping,
         }}>
