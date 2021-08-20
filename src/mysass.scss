@@ -797,8 +797,8 @@ body {
       @include no-select();
       align-self: flex-start;
       justify-self: center;
-      width: 600px;
-      height: 600px;
+      width: 530px;
+      height: 530px;
       position: relative;
       .icons {
         position: absolute;
@@ -807,7 +807,8 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        font-size: 2rem;
+        font-size: 2.6rem;
+        // background-color: palevioletred;
         .veg {
           margin: 1rem;
           color: $success;
