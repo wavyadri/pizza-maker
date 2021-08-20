@@ -1,8 +1,6 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useGlobalContext } from '../contexts'
 import base from '../images/base.svg'
-import {GoFlame} from 'react-icons/go'
-import {FaLeaf} from 'react-icons/fa'
 
 const Custom = () => {
     const {
@@ -70,17 +68,11 @@ const Custom = () => {
                     </form>
                 </div>
                 <div className="custom-pizza">
-                    {toppings.map((item, index) => {
-                        const {spicy, vegetarian} = item;
-                        return <div key={index} className='icons'>
-                                <div className="veg">{vegetarian && <FaLeaf/>}</div>
-                                <div className="spicy">{spicy && <GoFlame/>}</div>
-                            </div>
-                    })}
                     <img src={base} alt="pizza base" className='base'/>
                     <div className='topping'>
                         {toppings.map((item) => {
                             const {id, image, title, category} = item;
+                            // return <div key={id} className='topping'>
                             return <img key={id} src={image} alt={title} 
                                 className={category === 'sauce' ? 'sauce topping'
                                 : category === 'cheese' ? 'cheese topping'
