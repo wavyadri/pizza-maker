@@ -1,11 +1,22 @@
-import image2 from '../images/temp-pizza.png'
+import mamaMargherita from '../images/mama-margherita.svg'
+import plantDaddy from '../images/plant-daddy.svg'
+import theVeganOne from '../images/the-vegan-one.svg'
+import freshToDeath from '../images/fresh-to-death.svg'
+import mcCreamy from '../images/mccreamy.svg'
+import pepperoniPlease from '../images/pepperoni-please.svg'
+import hawaiiHighFive from '../images/hawaii-high-five.svg'
+import meatStreet from '../images/meat-street.svg'
+import deluxxe from '../images/deluxxxe.svg'
+import hamSandwich from '../images/ham-sandwich.svg'
+import custom from '../images/custom.svg'
+import pizza from '../images/pizza.svg'
 
 const menu = [
     {
         id: 1,
         category: 'vegetarian',
         title: 'mama margherita',
-        image: `${image2}`,
+        image: `${mamaMargherita}`,
         sauce: 'homestyle tomato sauce',
         toppings: ['tomato', 'mozzarella slices', 'fresh basil'],
         price: '14.99',
@@ -18,7 +29,7 @@ const menu = [
         id: 2,
         category: 'vegetarian',
         title: 'plant daddy',
-        image: '../components/temp-pizza.png',
+        image: `${plantDaddy}`,
         sauce: 'house-made pesto',
         toppings: ['tomato', 'mushrooms', 'black olives', 'green peppers','mozzarella cheese'],
         price: '16.99',
@@ -31,7 +42,7 @@ const menu = [
         id: 3,
         category: 'vegetarian',
         title: 'the vegan one',
-        image: '../components/temp-pizza.png',
+        image: `${theVeganOne}`,
         sauce: 'BBQ sauce',
         toppings: ['mushrooms', 'green peppers', 'vegan chkn', 'hot peppers'],
         price: '16.99',
@@ -44,7 +55,7 @@ const menu = [
         id: 4,
         category: 'vegetarian',
         title: 'fresh to death',
-        image: '../components/temp-pizza.png',
+        image: `${freshToDeath}`,
         sauce: 'homestyle tomato sauce',
         toppings: ['mushrooms', 'pineapple', 'tomato', 'black olives', 'mozzarella cheese', 'cilantro'],
         price: '16.99',
@@ -57,7 +68,7 @@ const menu = [
         id: 5,
         category: 'classics',
         title: 'pepperoni please',
-        image: '../components/temp-pizza.png',
+        image: `${pepperoniPlease}`,
         sauce: 'homestyle tomato sauce',
         toppings: ['pepperoni', 'mozzarella slices'],
         price: '14.99',
@@ -70,7 +81,7 @@ const menu = [
         id: 6,
         category: 'vegetarian',
         title: 'McCreamy',
-        image: '../components/temp-pizza.png',
+        image: `${mcCreamy}`,
         sauce: 'creamy roasted garlic sauce',
         toppings: ['mozzarella cheese', 'cheddar cheese'],
         price: '14.99',
@@ -83,7 +94,7 @@ const menu = [
         id: 7,
         category: 'classics',
         title:"hawai'i high-five",
-        image: '../components/temp-pizza.png',
+        image: `${hawaiiHighFive}`,
         sauce: 'homestyle tomato sauce',
         toppings: ['pineapple', 'mushrooms', 'smoked ham', 'cheddar cheese'],
         price: '16.99',
@@ -96,7 +107,7 @@ const menu = [
         id: 8,
         category: 'classics',
         title: 'meat street',
-        image: '../components/temp-pizza.png',
+        image: `${meatStreet}`,
         sauce: 'BBQ sauce',
         toppings: ['pepperoni', 'sausage', 'smoked ham', 'cheddar cheese'],
         price: '16.99',
@@ -109,7 +120,7 @@ const menu = [
         id: 9,
         category: 'classics',
         title: 'deluxxxe',
-        image: '../components/temp-pizza.png',
+        image: `${deluxxe}`,
         sauce: 'homestyle tomato sauce',
         toppings: ['green pepper', 'tomato', 'mushrooms', 'pepperoni', 'mozzarella cheese', 'hot peppers', 'chili flakes'],
         price: '16.99',
@@ -122,7 +133,7 @@ const menu = [
         id: 10,
         category: 'classics',
         title: 'Ham Sandwich',
-        image: '../components/temp-pizza.png',
+        image: `${hamSandwich}`,
         sauce: 'house-made pesto',
         toppings: ['black olives', 'smoked ham', 'mozzarella slices'],
         price: '16.99',
@@ -135,7 +146,7 @@ const menu = [
         id: 11,
         category: 'custom',
         title: 'make your own',
-        image: '../components/temp-pizza.png',
+        image: `${pizza}`,
         sauce: '',
         toppings: [],
         price: '9.99',

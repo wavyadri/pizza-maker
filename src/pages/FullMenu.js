@@ -1,11 +1,8 @@
 import React from 'react'
 import { useGlobalContext } from '../contexts'
-import menu from '../components/menu'
 import { Link } from 'react-router-dom'
 import {GoFlame} from 'react-icons/go'
 import {FaLeaf} from 'react-icons/fa'
-
-const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
 const FullMenu = () => {
     const {menuItems, categories, currentCategory, filterMenu} = useGlobalContext();
@@ -31,7 +28,7 @@ const FullMenu = () => {
                             <div className="spicy">{spicy && <GoFlame/>}</div>
                         </div>
                         <div className="image">
-                            <img src={url} alt={title} />
+                            <img src={image} alt={title} />
                         </div>
                         <div className="text">
                             <h2>{title}</h2>

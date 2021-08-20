@@ -30,7 +30,7 @@ const SinglePizza = () => {
             </div>
             <div className="single-pizza">  
                 <div className="image">
-                    <img src={image2} alt={pizza.title} />
+                    <img src={pizza.image} alt={pizza.title} />
                 </div>
                 <div className="info">
                     <h1 className='title'>{pizza.title}</h1>
