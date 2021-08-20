@@ -229,6 +229,11 @@
       }
     }
   }
+
+  // E R R O R {
+  #error {
+    max-width: 90%;
+  }
 }
 
 // Mobile
@@ -406,6 +411,16 @@
           width: 290px;
           font-size: 1.3rem;
         }
+      }
+    }
+  }
+
+  // E R R O R
+  #error {
+    max-width: 90%;
+    .btn {
+      p {
+        font-size: 0.7rem;
       }
     }
   }

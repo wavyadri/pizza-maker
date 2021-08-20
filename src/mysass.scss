@@ -875,4 +875,20 @@ body {
   @include flex-center();
   @include section();
   @include border();
+  h1 {
+    .pizza-maker {
+      @include pizza-maker-mini();
+      font-size: 2rem;
+      color: $primary;
+    }
+  }
+  .btn {
+    margin: 1rem 0;
+    @include flex-center();
+    flex-direction: row;
+    @include button();
+    p {
+      padding-left: 5px;
+    }
+  }
 }
