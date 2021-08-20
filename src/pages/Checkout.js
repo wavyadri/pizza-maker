@@ -15,11 +15,11 @@ const Checkout = () => {
             <div className="checkout-container">
                 {cart.length > 0 ? 
                     cart.map((item) => {
-                    const {id, title, price, amount} = item;
+                    const {id, title, price, amount, image} = item;
                     return  <div key={id} className="checkout-item">
                         <div className="item-container">
                             <div className="image">
-                                <img src={url} alt="pizza" />
+                                <img src={image} alt={title} />
                             </div>
                             <div className="item">
                                 <h2 className="title">{title}</h2>

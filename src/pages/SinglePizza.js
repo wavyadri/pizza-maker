@@ -4,9 +4,6 @@ import { useGlobalContext } from '../contexts'
 import {BiArrowBack} from 'react-icons/bi'
 import {GoFlame} from 'react-icons/go'
 import {FaLeaf} from 'react-icons/fa'
-import image2 from '../images/temp-pizza.png'
-
-const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
 
 const SinglePizza = () => {
     const {menuItems, addItem} = useGlobalContext();

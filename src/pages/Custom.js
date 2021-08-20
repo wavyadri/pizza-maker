@@ -1,5 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { useGlobalContext } from '../contexts'
+import base from '../images/base.svg'
+import {GoFlame} from 'react-icons/go'
+import {FaLeaf} from 'react-icons/fa'
 
 const Custom = () => {
     const {
@@ -67,26 +70,31 @@ const Custom = () => {
                     </form>
                 </div>
                 <div className="custom-pizza">
-                    <h1>pizza image</h1>
-                    <h1>{totalCustom}</h1>
-                    {toppings.map((item) => {
-                        const {id, title, checked} = item;
-                        return <div key={id} className="topping">
-                            <h2>{title}</h2>
-                            {checked &&
-                            <h1>TRUE</h1>
-                            }
-                            {!checked &&
-                            <h1>FALSE</h1>
-                            }
-                        </div>
+                    {toppings.map((item, index) => {
+                        const {spicy, vegetarian} = item;
+                        return <div key={index} className='icons'>
+                                <div className="veg">{vegetarian && <FaLeaf/>}</div>
+                                <div className="spicy">{spicy && <GoFlame/>}</div>
+                            </div>
                     })}
+                    <img src={base} alt="pizza base" className='base'/>
+                    <div className='topping'>
+                        {toppings.map((item) => {
+                            const {id, image, title, category} = item;
+                            return <img key={id} src={image} alt={title} 
+                                className={category === 'sauce' ? 'sauce topping'
+                                : category === 'cheese' ? 'cheese topping'
+                                : category === 'veggies' ? 'veggies topping'
+                                : category === 'protein' ? 'protein topping'
+                                : 'garnish topping'
+                                }
+                            />   
+                        })}
+                    </div>
                 </div>
             </div>
             <div className="custom-footer">
-                {/* make this span both columns */}
                 <div className="custom-total">${totalCustom}</div>
-                {/* make this span both columns */}
                 <div className="custom-add">
                     <button className='btn' onClick={() => {addCustomPizza()}}>add</button>
                 </div>
