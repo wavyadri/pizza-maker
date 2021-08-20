@@ -27,6 +27,7 @@ const AppProvider = ({children}) => {
     const [fullMenu, setFullMenu] = useState(menu)
 
     // M E N U (categories)
+    // store all menu items in state
     const [menuItems, setMenuItems] = useState(menu);
     // new array of only unique categories
     const allCatgeories = [...new Set(menuItems.map((item) => item.category))];
@@ -89,6 +90,7 @@ const AppProvider = ({children}) => {
     }, [state.cart])
 
     // C U S T O M (categories)
+    // store all toppings in state
     const [toppingItems, setToppingItems] = useState(toppings);
     // new array of unique topping categories
     const allToppingCategories = [...new Set(toppingItems.map((item) => item.category))];
@@ -142,6 +144,53 @@ const AppProvider = ({children}) => {
     useEffect(() => {
     dispatchCustom({ type: 'GET_TOTALS' })
     }, [stateCustom.toppings])
+
+    const [isVegetarian, setIsVegetarian] = useState(false)
+
+    const toppingsVegetarian = (items) => {
+        // filter new array of toppings that are NOT vegetarian
+       let nonVegToppings = items.filter((item) => item.vegetarian === false)
+        // if 1 or more exists, that means there is a non veg toppings the whole pizza is considered non veg
+        console.log(nonVegToppings)
+        if (nonVegToppings.length >  0) {
+           return false
+        // else all toppings are veg and whole pizza is considered veg   
+       } else {
+           return true
+       }
+    }
+
+    const [isSpicy, setIsSpicy] = useState(false)
+
+    const toppingsSpicy = (items) => {
+        // filter new array of toppings that ARE spicy
+        let spicyToppings = items.filter((item) => item.spicy === true)
+        console.log(spicyToppings)
+        // if at least 1 exists, whole pizza is spicy
+        if (spicyToppings.length > 0) {
+            return true
+        // else all toppings are not spicy and whole pizza is not spicy
+        } else {
+            return false
+        }
+    }
+
+    useEffect(() => {
+         if (toppingsVegetarian(stateCustom.toppings)) {
+            setIsVegetarian(true)
+        } else {
+            setIsVegetarian(false)
+        }
+        if (toppingsSpicy(stateCustom.toppings)) {
+            setIsSpicy(true)
+        } else {
+            setIsSpicy(false)
+        }
+        if (stateCustom.toppings.length === 0) {
+            setIsVegetarian(false)
+            setIsSpicy(false)
+        }
+    }, [stateCustom.toppings])
   
     return <AppContext.Provider value={{
         fullMenu,
@@ -164,6 +213,8 @@ const AppProvider = ({children}) => {
         completeCustomPizza,
         checkTopping,
         radioTopping,
+        isSpicy,
+        isVegetarian,
         }}>
         {children}
     </AppContext.Provider>
@@ -174,5 +225,5 @@ export const useGlobalContext = () => {
     return useContext(AppContext)
 }
 
-// we want to export the context and the provider
+// export the context and the provider
 export {AppContext, AppProvider}
