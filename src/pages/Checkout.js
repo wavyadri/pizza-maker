@@ -5,8 +5,6 @@ import {RiArrowUpSLine, RiArrowDownSLine} from 'react-icons/ri'
 import { useGlobalContext } from '../contexts'
 import {BiArrowBack} from 'react-icons/bi'
 
-const url = 'https://images.onlinelabels.com/images/clip-art/toons4biz/Pepperoni%20Pizza-189439.png'
-
 const Checkout = () => {
     const {cart, total, confirmOrder, isModalOpen, removeItem, increase, decrease} = useGlobalContext();
     return <>
