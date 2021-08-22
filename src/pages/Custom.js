@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { useGlobalContext } from '../contexts'
 import base from '../images/base.svg'
 import {GoFlame} from 'react-icons/go'
@@ -25,13 +25,13 @@ const Custom = () => {
         // variable to add new custom pizzas to checkout with different prices and ids
         let finalPizza;
 
-        // search full menu for custom pizza and update price
+        // search full menu for custom pizza create new pizza with updated price and id
         let newPizza = fullMenu.find((item) => item.category === 'custom');
         if (newPizza) {
             finalPizza = {...newPizza, price: totalCustom, id: Date.now()}
             // newPizza.price = totalCustom
         }
-        // add as item to checkout cart
+        // add as new item to checkout cart
         addItem(finalPizza)
         completeCustomPizza(toppings);
     }

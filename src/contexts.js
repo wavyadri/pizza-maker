@@ -114,7 +114,6 @@ const AppProvider = ({children}) => {
         // 'confirm order' button 
     const completeCustomPizza = () => {
         dispatchCustom({ type: 'ADD_ORDER' })
-        // dispatchCustom({ type: 'ADD_ORDER', payload: item })
     }
 
         // toggle topping on pizza

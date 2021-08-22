@@ -12,7 +12,6 @@ const Modal = () => {
                 <p className='modal-text'>Your order has been placed.</p>
                 <button className='btn' onClick={closeModal}>
                     <AiOutlineClose className='icon'/>
-                    {/* <p>close</p> */}
                 </button>
             </div>
         </div>

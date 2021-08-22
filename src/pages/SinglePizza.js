@@ -38,7 +38,6 @@ const SinglePizza = () => {
                     <h2 className='base'><span className='info-data'>sauce:</span> {pizza.sauce}</h2>
                     <h2 className='toppings'><span className='info-data'>toppings:</span>  {pizza.toppings && pizza.toppings.join(', ')}</h2>
                     <h2 className='price'><span className='info-data'>price:</span> ${pizza.price}</h2>
-                    {/* <h2 className='price'><span className='info-data'>price:</span>  ${pizza.price}</h2> */}
                     <button className='btn' onClick={() => {addItem(pizza)}}>add</button>
                 </div> 
             </div>

@@ -8,7 +8,6 @@ import hawaiiHighFive from '../images/hawaii-high-five.svg'
 import meatStreet from '../images/meat-street.svg'
 import deluxxe from '../images/deluxxxe.svg'
 import hamSandwich from '../images/ham-sandwich.svg'
-import custom from '../images/custom.svg'
 import pizza from '../images/pizza.svg'
 
 const menu = [
