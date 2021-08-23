@@ -286,6 +286,7 @@ body {
     margin: auto;
     .logo {
       justify-self: start;
+      margin: 0 1rem;
       .logo-text {
         @include no-select();
         display: flex;
@@ -312,7 +313,7 @@ body {
         list-style: none;
         display: flex;
         li {
-          margin-left: 1rem;
+          margin: 0 1rem;
           @include ease();
           &:hover {
             transform: translateY(-5px);
