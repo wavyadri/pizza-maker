@@ -128,7 +128,7 @@ const AppProvider = ({children}) => {
         dispatchCustom({type: 'REMOVE_TOPPING', payload: item})
     }
 
-        // for RADIO, each click removes all other sauces
+        // for radio button, each click removes all other sauces
     const radioTopping = (item) => {
         let currToppings = stateCustom.toppings.find(obj => obj.id === item.id);
         // if no sauce exists, add

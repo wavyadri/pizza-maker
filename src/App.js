@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // pages
 import Navbar from './components/Navbar'
@@ -11,7 +10,7 @@ import SinglePizza from './pages/SinglePizza'
 import Error from './pages/Error'
 
 function App() {
-  // show navbar and footer on all pages other than Home
+  // show navbar on all pages other than Home
   const DefaultRoutes = () => {
     return (
       <>

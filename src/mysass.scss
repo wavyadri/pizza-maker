@@ -54,7 +54,6 @@ $success: #16c172;
 @mixin border {
   border: 5px solid $primary;
   background-color: $darkerlight;
-  // box-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
 }
 
 // logo
@@ -64,7 +63,7 @@ $success: #16c172;
   letter-spacing: 1rem;
   word-spacing: 0px;
   font-weight: 600;
-  font-size: 12em;
+  font-size: 8rem;
   transform: rotate(-3deg);
   color: $primary;
   text-shadow: 2px 2px 8px rgba(35, 28, 26, 0.3);
@@ -73,7 +72,7 @@ $success: #16c172;
 // smaller version of title text
 @mixin pizza-maker-mini {
   @include pizza-maker();
-  font-size: 2.5em;
+  font-size: 2rem;
   letter-spacing: 5px;
   text-shadow: none;
   color: $black;
@@ -91,7 +90,7 @@ $success: #16c172;
 // navbar text style
 @mixin navbar-text {
   text-transform: capitalize;
-  font-size: 1.3em;
+  font-size: 1.2rem;
   font-weight: 600;
   font-family: $font-main;
   color: $black;
@@ -182,8 +181,8 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       .square {
-        height: 130px;
-        width: 130px;
+        height: 100px;
+        width: 100px;
         + .s2,
         + .s4,
         + .s5,
@@ -206,8 +205,8 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       .square {
-        height: 130px;
-        width: 130px;
+        height: 100px;
+        width: 100px;
         + .s15,
         + .s13,
         + .s12,
@@ -233,7 +232,7 @@ body {
       :nth-child(1) {
         text-transform: capitalize;
         font-weight: 300;
-        font-size: 2em;
+        font-size: 2rem;
         letter-spacing: 0.5rem;
         color: $black;
         margin: 1rem;
@@ -252,7 +251,7 @@ body {
         padding: 15px 10px;
         border: 5px solid $black;
         font-family: $font-main;
-        font-size: 1em;
+        font-size: 1rem;
         margin: 2rem 1rem;
         &:hover {
           cursor: pointer;
@@ -276,6 +275,7 @@ body {
   color: $black;
   top: 0;
   z-index: 1;
+  margin-top: 1vh;
   .navbar-items {
     max-width: 65%;
     min-height: 10vh;
@@ -286,7 +286,6 @@ body {
     margin: auto;
     .logo {
       justify-self: start;
-      margin: 0 1rem;
       .logo-text {
         @include no-select();
         display: flex;
@@ -295,7 +294,7 @@ body {
         p {
           @include pizza-maker();
           letter-spacing: 5px;
-          font-size: 2.5em;
+          font-size: 2rem;
           &:hover {
             cursor: pointer;
           }
@@ -313,7 +312,7 @@ body {
         list-style: none;
         display: flex;
         li {
-          margin: 0 1em;
+          margin-left: 1rem;
           @include ease();
           &:hover {
             transform: translateY(-5px);
@@ -359,13 +358,12 @@ body {
 #header {
   display: flex;
   max-width: 65%;
-  height: 40vh;
+  height: 30vh;
   margin: auto;
   background-color: $primary;
   overflow: hidden;
   position: relative;
   z-index: 98;
-
   .header-grids {
     display: flex;
     z-index: 99;
@@ -378,8 +376,8 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       .square {
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         + .s2,
         + .s4,
         + .s5,
@@ -402,8 +400,8 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       .square {
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         + .s15,
         + .s13,
         + .s12,
@@ -425,10 +423,10 @@ body {
     z-index: 100;
     .header-text {
       @include pizza-maker();
-      word-spacing: -50px;
-      letter-spacing: 10px;
+      word-spacing: -10px;
+      letter-spacing: 5px;
       color: $light;
-      font-size: 8em;
+      font-size: 4rem;
     }
   }
 }
@@ -436,20 +434,17 @@ body {
 // M E N U
 #menu {
   @include flex-center();
-  max-width: 65%;
-  margin: auto;
-  padding: 1rem 0;
+  @include section();
+  padding: 0;
   .menu-links {
     .menu-list {
       list-style: none;
       display: flex;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
       .category {
-        @include pizza-maker();
-        font-size: 2em;
-        letter-spacing: 8px;
-        color: $black;
-        padding: 0 3rem;
+        @include pizza-maker-mini();
+        margin-bottom: 0;
+        padding: 0 2rem;
         &:hover {
           cursor: pointer;
           color: $primary;
@@ -466,13 +461,13 @@ body {
     margin: 1rem 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 8px;
     justify-items: center;
     align-items: center;
     .menu-card {
       @include border();
-      height: 500px;
-      width: 400px;
+      height: 400px;
+      width: 265px;
       @include flex-center();
       position: relative;
       .icons {
@@ -482,7 +477,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        font-size: 2rem;
+        font-size: 1.5rem;
         .veg {
           margin: 1rem;
           color: $success;
@@ -494,8 +489,8 @@ body {
       }
       .image {
         @include flex-center();
-        height: 300px;
-        width: 300px;
+        height: 220px;
+        width: 220px;
         margin: 1rem 0;
         img {
           max-width: 100%;
@@ -505,14 +500,14 @@ body {
         text-transform: capitalize;
         h2 {
           @include pizza-maker();
-          font-size: 1.5em;
+          font-size: 1.5rem;
           letter-spacing: 5px;
           text-shadow: none;
           color: $black;
           margin-bottom: 0.3em;
         }
         p {
-          font-weight: 600;
+          font-weight: 400;
           margin-bottom: 0.3em;
         }
         a {
@@ -532,6 +527,7 @@ body {
   @include flex-center();
   @include section();
   @include border();
+  margin-top: 0;
   .back {
     display: flex;
     .btn {
@@ -546,11 +542,11 @@ body {
   .single-pizza {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
+    margin-top: 2rem;
     .image {
       @include flex-center();
-      height: 600px;
-      width: 600px;
+      height: 400px;
+      width: 400px;
       margin: 1rem 0;
       img {
         max-width: 100%;
@@ -567,14 +563,13 @@ body {
         @include pizza-maker-mini();
       }
       .icons {
-        width: 6rem;
+        width: 3rem;
         height: auto;
         display: flex;
         flex-direction: row;
         justify-self: center;
         justify-content: center;
-        font-size: 2rem;
-        margin: 1rem;
+        font-size: 1.5rem;
         .veg {
           margin: 0 5px;
           color: $success;
@@ -743,7 +738,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 800px;
+  height: 650px;
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -754,15 +749,14 @@ body {
       @include flex-center();
       width: 80%;
       height: auto;
-      // background-color: blueviolet;
       .toppings-list {
         list-style: none;
         text-transform: capitalize;
         text-align: center;
         .category {
           @include pizza-maker-mini();
-          padding: 0 1rem;
-          font-size: 2rem;
+          padding: 0 0.5rem;
+          font-size: 1.5rem;
           display: inline-block;
           &:hover {
             cursor: pointer;
@@ -775,6 +769,7 @@ body {
         }
       }
       .toppings-items {
+        text-align: left;
         list-style: none;
         .items-container {
           display: flex;
@@ -797,8 +792,8 @@ body {
       @include no-select();
       align-self: flex-start;
       justify-self: center;
-      width: 530px;
-      height: 530px;
+      width: 430px;
+      height: 430px;
       position: relative;
       .icons {
         position: absolute;
@@ -807,7 +802,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        font-size: 2.6rem;
+        font-size: 1.5rem;
         .veg {
           margin: 1rem;
           color: $success;
@@ -856,7 +851,7 @@ body {
       grid-column: 1/-1;
       justify-self: center;
       @include text();
-      font-size: 2rem;
+      font-size: 1.5rem;
       padding: 1rem 0;
     }
     .custom-add {
@@ -875,6 +870,7 @@ body {
   @include flex-center();
   @include section();
   @include border();
+  margin-top: 0;
   h1 {
     .pizza-maker {
       @include pizza-maker-mini();
