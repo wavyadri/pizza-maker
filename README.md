@@ -14,4 +14,6 @@ Next up was the Checkout. Here I dove into useReducer to manage states of cart i
 
 Currently working on Custom.js Pizza Maker aka the custom pizza builder!
 
+Deployed at: https://hardcore-tereshkova-ed717b.netlify.app/
+
 To be continued...
